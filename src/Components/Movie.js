@@ -1,4 +1,5 @@
 import React from 'react';
+import 'https://kit.fontawesome.com/afb5c9b5bb.js'; //Button Icons
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const setVoteClass = (vote) => {
@@ -11,6 +12,10 @@ const setVoteClass = (vote) => {
 	else {
 		return 'red';
 	}
+}
+
+const myPrint = (e) => {
+    console.log('test');
 }
 
 export const Movie = ({title, poster_path, overview, vote_average}) => (
@@ -26,6 +31,10 @@ export const Movie = ({title, poster_path, overview, vote_average}) => (
 		<div className='movie-over'>
 			<h2>Summary:</h2>
 			<p>{overview}</p>
+			<div className='buttons'>
+				<div className='watchButton'><a onClick={()=>myPrint()}><button type='button' className='button-5'><i className="fa-solid fa-plus fa-lg"></i></button></a></div>
+				<div className='watchButton'><a onClick={()=>myPrint()}><button type='button' className='button-5'><i className="fa-solid fa-eye fa-lg"></i></button></a></div>
+			</div>
 		</div>
 	</div>
 );
