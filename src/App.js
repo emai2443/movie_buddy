@@ -21,6 +21,7 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/movie_buddy" element={<Home />} />
           <Route exact path="/watchlist" element={<Watchlist />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/watched" element={<Watched />} />
