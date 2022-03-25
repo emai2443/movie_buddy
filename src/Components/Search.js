@@ -3,7 +3,7 @@ import { ResultCard } from "./ResultCard";
 
 export const Search = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [movies, setResults] = useState([]);
 
   const onChange = (e) => {
     e.preventDefault();
@@ -17,6 +17,7 @@ export const Search = () => {
       .then((data) => {
         if (!data.errors) {
           setResults(data.results);
+          console.log(data.results);
         } else {
           setResults([]);
         }
@@ -35,18 +36,17 @@ export const Search = () => {
               onChange={onChange}
             />
           </div>
-
-          {results.length > 0 && (
-            <ul className="results">
-              {results.map((movie) => (
-                <li key={movie.id}>
-                  <ResultCard movie={movie} />
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
+      {movies.length > 0 && (
+        <div className="movie-container">
+          {movies.map((movie) => (
+            <div key={movie.id}>
+              <ResultCard movie={movie} />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
