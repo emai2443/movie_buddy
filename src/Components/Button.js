@@ -1,7 +1,9 @@
 import React from 'react';
 
+const BASE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
 var TEST_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
 var selectedGenre = []
+
 
 const buttonFunction = (e) => {
     //console.log(e.target.id);
@@ -24,6 +26,15 @@ const buttonFunction = (e) => {
     hightlightButton()
 }
 
+function clearBtn() {
+    selectedGenre = [];
+    TEST_API = BASE_API;
+    const tags = document.querySelectorAll('.genreButton');
+    tags.forEach(tag => {
+        tag.classList.remove('highlight');
+    })
+}
+
 function hightlightButton() {
     const tags = document.querySelectorAll('.genreButton');
     tags.forEach(tag => {
@@ -38,24 +49,6 @@ function hightlightButton() {
     }
 }
 
-// function clearBtn() {
-//     let clearBtn = document.getElementById('clear');
-//     if(clearBtn) {
-//         clearBtn.classList.add('highlight')
-//     } else {
-//         let clear = document.createElement('div');
-//         clear.classList.add('highlight','genreButton');
-//         clear.id = 'clear';
-//         clear.innerText = 'Clear x';
-
-//         clear.addEventListener('click', () => {
-//             selectedGenre = []
-//         })
-
-//         const thing = document.getElementsByClassName('genreButtonContainer')
-//         thing.append(clear);
-//     }
-// }
 
 const Bttn = ({id,name}) => {
     return(
@@ -66,4 +59,4 @@ const Bttn = ({id,name}) => {
 }
 
 export default Bttn;
-export {TEST_API};
+export {TEST_API, clearBtn, selectedGenre};
