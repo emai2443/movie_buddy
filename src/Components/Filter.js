@@ -2,15 +2,15 @@ import React,{useEffect,useState} from 'react';
 import { Movie } from './Movie';
 import {genres} from './Genres';
 import ButtonList from './ButtonList';
-import { TEST_API, clearBtn, selectedGenre } from './Button';
+import { TEST_API, clearBtn } from './Button';
 
 
 export const Filter = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    filter()
     clearBtn()
+    filter()
   }, [])
 
   const getMovies = (url) => {
@@ -49,7 +49,6 @@ export const Filter = () => {
     </div>
   </div>);
 }
-
 
 
 
