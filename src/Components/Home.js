@@ -19,7 +19,7 @@ export const Home = () => {
 
         console.log(movies);
       });
-  });
+  }, []);
 
   useEffect(() => {
     fetch(NOW_PLAYING_API)
@@ -30,7 +30,7 @@ export const Home = () => {
 
         console.log(movies2);
       });
-  });
+  }, []);
 
   useEffect(() => {
     fetch(TOP_RATED_API)
@@ -41,7 +41,7 @@ export const Home = () => {
 
         console.log(movies3);
       });
-  });
+  }, []);
 
   return (
     <>

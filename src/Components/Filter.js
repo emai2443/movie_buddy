@@ -2,11 +2,16 @@ import React,{useEffect,useState} from 'react';
 import { Movie } from './Movie';
 import {genres} from './Genres';
 import ButtonList from './ButtonList';
-import { TEST_API } from './Button';
+import { TEST_API, clearBtn, selectedGenre } from './Button';
 
 
 export const Filter = () => {
   const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    filter()
+    clearBtn()
+  }, [])
 
   const getMovies = (url) => {
     fetch(url).then(res => res.json()).then(data => {
@@ -19,17 +24,24 @@ export const Filter = () => {
         let v = document.getElementById('emptyResult')
         v.innerHTML = `<h1 class="no-result">No Results</h1>`;
         //console.log('empty!');
+        // setMovies([])
       }
 
     })
   }
 
+  const filter = () => {
+    getMovies(TEST_API)
+    // selectedGenre = []
+  }
+
   return (<div>
     <h1 className='filterTitle'>Filters</h1>
     <ButtonList genres={genres}/>
-
-    <div className='filterButton'><button onClick={() => getMovies(TEST_API)} className='applyButton'>Apply</button></div>
-
+    <div className='filterACButton'>
+      <div className='filterButton'><button onClick={() => filter()} className='applyButton'>Apply</button></div>
+      <div className='filterButton'><button onClick={() => (clearBtn(),getMovies(TEST_API))} className='applyButton'>Clear x</button></div>
+    </div>
     <div id='emptyResult'></div>
     <div className='movie-container'>
       {movies.length > 0 && movies.map((movie)=> 

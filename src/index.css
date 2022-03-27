@@ -261,6 +261,12 @@ code {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
+.filterACButton {
+  display: flex;
+  justify-content: center;
+}
 /* COLORS */
 
 header {
