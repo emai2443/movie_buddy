@@ -1,8 +1,8 @@
 import React from 'react';
 import { Filter } from './Filter';
 
-const BASE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
-var TEST_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
+const BASE_API = `https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
+var TEST_API = `https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}`;
 var selectedGenre = []
 
 
