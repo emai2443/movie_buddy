@@ -30,12 +30,17 @@ export const Header = () => {
               <Link to="/search">Search</Link>
             </li>
             <li>
-              <div className='dropdown'>
-                <Link to="/user" className='btn'>User</Link>
-                <div className='dropdown-content'>
-                  <p>Item 1</p>
-                  <p>Item 1</p>
-                  <p>Item 1</p>
+              <div className="dropdown">
+                <Link to="/user" className="btn">
+                  User
+                </Link>
+                <div className="dropdown-content">
+                  <Link to="/signin">
+                    <p>Sign In</p>
+                  </Link>
+                  <Link to="/register">
+                    <p>Register</p>
+                  </Link>
                 </div>
               </div>
             </li>
