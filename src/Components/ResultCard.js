@@ -26,7 +26,9 @@ export const ResultCard = ({ movie }) => {
               alt={`${movie.title} Poster`}
             />
           ) : (
-            <div className="filler-poster"></div>
+            <div>
+              <img src="https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" />
+            </div>
           )}
         </div>
         <div className="movie-info">

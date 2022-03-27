@@ -10,6 +10,8 @@ import { Filter } from "./Components/Filter";
 import { Search } from "./Components/Search";
 import "./lib/font-awesome/css/all.min.css";
 import { GlobalProvider } from "./context/GlobalState";
+import Register from "./Components/Register";
+import Signin from "./Components/SignIn";
 
 import "./App.css";
 import { OurPicks } from "./Components/OurPicks";
@@ -29,6 +31,8 @@ function App() {
           <Route exact path="/filter" element={<Filter />} />
           <Route exact path="/ourpick" element={<OurPicks />} />
           <Route exact path="/search" element={<Search />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/signin" element={<Signin />} />
         </Routes>
       </Router>
     </GlobalProvider>
