@@ -13,12 +13,12 @@ const setVoteClass = (vote) => {
   }
 };
 
-const myPrint = () => {
-  console.log("test");
+const myPrint = (id) => {
+  console.log(id)
 };
 // const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
 
-export const Movie = ({ title, poster_path, overview, vote_average }) => (
+export const Movie = ({ title, poster_path, overview, vote_average,id }) => (
   <div className="movie">
     <div className="movie-header">
       <img
@@ -42,7 +42,7 @@ export const Movie = ({ title, poster_path, overview, vote_average }) => (
       <p>{overview}</p>
       <div className="buttons">
         <div className="watchButton">
-          <a onClick={() => myPrint()}>
+          <a onClick={() => myPrint(id)}>
             <button type="button" className="button-5">
               <i className="fa-solid fa-plus fa-lg"></i>
             </button>
