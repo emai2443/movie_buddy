@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import Settings from "./Settings";
+import { Account } from "./Account";
+import Status from "./Status";
+import Login from "./Login";
 
 export const User = () => {
   return (
-    <div>User Page</div>
-  )
-}
+    <Account>
+      <Settings />
+      <Status />
+    </Account>
+  );
+};
