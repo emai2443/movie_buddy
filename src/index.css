@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
+.container {
+  position: sticky;
+  top: 0;
+}
 .homeTitle {
   margin-left: 100px;
 }
@@ -186,27 +189,27 @@ code {
   display: inline-block;
 }
 
-.genreButton{
+.genreButton {
   all: unset;
   cursor: pointer;
   margin: 10px;
   border-radius: 0.1em;
   box-sizing: border-box;
   text-decoration: none;
-  padding:0.4em .5em;
-  border:0.1em solid #FFFFFF;
+  padding: 0.4em 0.5em;
+  border: 0.1em solid #ffffff;
   text-align: center;
   transition: all 0.3s;
 }
 
 .genreButton:hover {
-  color:#000000;
-  background-color:#FFFFFF;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 .genreButton.highlight {
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .filterButton {
@@ -218,23 +221,23 @@ code {
   text-align: center;
   cursor: pointer;
   display: inline-block;
-  padding:0.5em 1em;
-  border:0.1em solid #fffffe;
-  background-color:#7f5af0;
-  font-weight:bold;
+  padding: 0.5em 1em;
+  border: 0.1em solid #fffffe;
+  background-color: #7f5af0;
+  font-weight: bold;
   font-size: 1.1rem;
-  color:#fffffe;
-  text-decoration:none;
-  border-radius:0.12em;
+  color: #fffffe;
+  text-decoration: none;
+  border-radius: 0.12em;
   box-sizing: border-box;
   transition: all 0.15s;
   margin: 15px;
 }
 
 .applyButton:hover {
-  text-shadow: 0 0 2em rgba(255,255,255,1);
-  color:#000000;
-  border-color:#000000;
+  text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+  color: #000000;
+  border-color: #000000;
 }
 
 .no-result {
@@ -253,7 +256,7 @@ code {
   background-color: #242629;
   color: #fffffe;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
 }
@@ -261,7 +264,6 @@ code {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 
 .filterACButton {
   display: flex;

@@ -77,6 +77,9 @@ input:focus {
 /* Header Styles */
 header {
   background-color: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 header .inner-content {
