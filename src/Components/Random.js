@@ -23,25 +23,14 @@ export const Random = () => {
         // console.log(data.results);
         // console.log(data.results);
       });
-  };
 
-  var arr = [];
-  while (arr.length < 8) {
-    var r = Math.floor(Math.random() * 100) + 1;
-    if (arr.indexOf(r) === -1) arr.push(r);
   }
 
-  let num1 = Math.floor(Math.random() * 19 + 1);
-  let num2 = Math.floor(Math.random() * 19 + 1);
-  let num3 = Math.floor(Math.random() * 19 + 1);
-  let num4 = Math.floor(Math.random() * 19 + 1);
-  let num5 = Math.floor(Math.random() * 19 + 1);
+  let num = Math.floor(Math.random() * (19) + 1)
+  console.log(movies[num])
 
-  num1 = arr[0];
-  num1 = arr[1];
-  num1 = arr[2];
-  num1 = arr[3];
-  num1 = arr[4];
+
+
 
   return (
     <>
@@ -51,11 +40,7 @@ export const Random = () => {
           movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         ; */}
         {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
-        <Movie key={num1} {...movies[num1]} />
-        <Movie key={num2} {...movies[num2]} />
-        <Movie key={num3} {...movies[num3]} />
-        <Movie key={num4} {...movies[num4]} />
-        <Movie key={num5} {...movies[num5]} />
+        <Movie key={num} {...movies[num]}/>
       </div>
     </>
   );
