@@ -1,19 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "./Account";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authenticate } = useContext(AccountContext);
-  //   const HomeButton = () => {
-  //     let history = useNavigate();
-  //   };
   const navigate = useNavigate();
   const logIn = () => {
     navigate("/user");
-    //if
-    //else to check authentication
   };
   const onSubmit = (event) => {
     event.preventDefault();
