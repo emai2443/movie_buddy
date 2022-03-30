@@ -23,10 +23,12 @@ export const Random = () => {
         // console.log(data.results);
         // console.log(data.results);
       });
+
   }
 
   let num = Math.floor(Math.random() * (19) + 1)
   console.log(movies[num])
+
 
 
 
