@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import UserPool from "./Userpool";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const logIn = () => {
+    navigate("/signin");
+  };
   const onSubmit = (event) => {
     event.preventDefault();
 
@@ -12,6 +17,8 @@ const Signup = () => {
         console.error(err);
       }
       console.log(data);
+      alert("Please check your e-mail for verification link!");
+      logIn();
     });
   };
   return (
