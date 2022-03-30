@@ -23,14 +23,10 @@ export const Random = () => {
         // console.log(data.results);
         // console.log(data.results);
       });
-
-  }
-
-  let num = Math.floor(Math.random() * (19) + 1)
-  console.log(movies[num])
+  };
 
 
-
+  let num1 = Math.floor(Math.random() * 19 + 1);
 
   return (
     <>
@@ -40,7 +36,7 @@ export const Random = () => {
           movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         ; */}
         {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
-        <Movie key={num} {...movies[num]}/>
+        <Movie key={num1} {...movies[num1]} />
       </div>
     </>
   );
