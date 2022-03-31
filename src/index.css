@@ -265,6 +265,12 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.refreshButton {
+  text-align: center;
+}
+
+
 /* COLORS */
 
 header {

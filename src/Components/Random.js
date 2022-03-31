@@ -45,7 +45,10 @@ export const Random = () => {
         {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
         <Movie key={num1} {...movies[num1]} />
       </div>
-      <button onClick={()=>reroll()}>Refresh</button>
+      <div className="refreshButton">
+        <button className='applyButton' onClick={()=>reroll() }>Refresh</button>
+      </div>
+      
     </>
   );
 };
