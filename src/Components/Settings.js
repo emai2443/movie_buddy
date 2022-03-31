@@ -14,10 +14,10 @@ export default () => {
   }, []);
 
   return (
-    <div>
+    <div className="settingsStyle" >
       {loggedin && (
         <>
-          <h2>Settings</h2>
+          <h2><i class="fa-solid fa-gear"></i> Settings</h2>
           <h3>Change Password</h3>
           <ChangePassword />
           <h4>Change Email</h4>

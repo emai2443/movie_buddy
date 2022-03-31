@@ -32,19 +32,23 @@ export default () => {
   };
 
   return (
-    <div>
+    <div className="settingsEmail">
       <form onSubmit={onSubmit}>
-        <label>New Email</label>
-        <input
-          value={newEmail}
-          onChange={(event) => setNewEmail(event.target.value)}
-        />
-        <label>Current Password</label>
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="submit">Change Email</button>
+        <div className="settingsItem">
+          <label>New Email</label><br/>
+          <input
+            value={newEmail}
+            onChange={(event) => setNewEmail(event.target.value)}/>
+        </div>
+        <div className="settingsItem">
+          <label>Current Password</label><br/>
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}/>
+        </div>
+        <div className="settingsItem">
+          <button type="submit">Change Email</button>
+        </div>
       </form>
     </div>
   );

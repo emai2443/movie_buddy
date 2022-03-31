@@ -22,23 +22,24 @@ const Signup = () => {
     });
   };
   return (
-    <div style={{
-      position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'
-    }}>
+    <div className="signUpStyle">
+      <div className="signUpItem">
+        <h2>Sign Up</h2>
+      </div>
       <form onSubmit={onSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        ></input>
-        <label htmlFor="password"> Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        ></input>
-        <button type="submit">Signup</button>
+        <div className="signUpItem">
+          <label htmlFor="email">Email</label>
+          <br/>
+          <input value={email} onChange={(event) => setEmail(event.target.value)} className='signUpInput'></input>
+        </div>
+        <div className="signUpItem">
+          <label htmlFor="password"> Password</label>
+          <br/>
+          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} className='signUpInput'></input>
+        </div>
+        <div className="signUpItem">
+          <button type="submit" className='applyButton2'>Sign Up</button>
+        </div>
       </form>
     </div>
   );

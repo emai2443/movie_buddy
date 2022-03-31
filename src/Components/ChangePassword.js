@@ -25,19 +25,23 @@ export default () => {
   };
 
   return (
-    <div>
+    <div className="settingsPassword">
       <form onSubmit={onSubmit}>
-        <label>Current password</label>
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <label>New password</label>
-        <input
-          value={newPassword}
-          onChange={(event) => setNewPassword(event.target.value)}
-        />
-        <button type="submit">Change password</button>
+        <div className="settingsItem">
+          <label>Current password</label><br/>
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}/>
+        </div>
+        <div className="settingsItem">
+          <label>New password</label><br/>
+          <input
+            value={newPassword}
+            onChange={(event) => setNewPassword(event.target.value)}/>
+        </div>
+        <div className="settingsItem">
+          <button type="submit">Change password</button>
+        </div>
       </form>
     </div>
   );

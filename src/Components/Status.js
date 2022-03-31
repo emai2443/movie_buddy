@@ -13,8 +13,8 @@ const Status = () => {
     });
   }, []);
   return (
-    <div style={{ fontSize: "24px" }}>
-      {status ? <button onClick={logout}>Logout</button> : "Please Login"}
+    <div style={{ fontSize: "24px" }} className='settingsCenter'>
+      {status ? <button onClick={logout} className='applyButton2'>Logout</button> : <h3>Please Login</h3>}
     </div>
   );
 };

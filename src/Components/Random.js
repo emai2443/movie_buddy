@@ -20,7 +20,17 @@ export const Random = () => {
   const reroll = () => {
     page = Math.floor(Math.random() * 10 + 1);
     num1 = Math.floor(Math.random() * 19 + 1);
-    getMovies(TEST_API);
+
+    if(page == 9 && num1 == 10) {
+      reroll()
+      console.log('worked1')
+    } else if (page == 8 && num1 == 9) {
+      reroll()
+      console.log('worked2')
+    } else {
+      getMovies(TEST_API);
+    }
+
   }
 
   const getMovies = (url) => {
@@ -44,6 +54,10 @@ export const Random = () => {
         ; */}
         {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
         <Movie key={num1} {...movies[num1]} />
+        {/* <Movie key={num2} {...movies[num2]} />
+        <Movie key={num3} {...movies[num3]} />
+        <Movie key={num4} {...movies[num4]} />
+        <Movie key={num5} {...movies[num5]} /> */}
       </div>
       <div className="refreshButton">
         <button className='applyButton' onClick={()=>reroll() }>Refresh</button>

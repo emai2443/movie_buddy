@@ -24,20 +24,26 @@ const Login = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        ></input>
-        <label htmlFor="password"> Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        ></input>
-        <button type="submit" onSuceess={logIn}>
-          Log In
-        </button>
+        <div className="signUpItem">
+          <label htmlFor="email">Email</label><br/>
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            className='signUpInput'></input>
+        </div>
+        <div className="signUpItem">
+          <label htmlFor="password"> Password</label><br/>
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            className='signUpInput'></input>
+        </div>
+        <div className="signUpItem">
+          <button type="submit" onSuceess={logIn} className='applyButton2'>
+            Log In
+          </button>
+        </div>
       </form>
     </div>
   );
