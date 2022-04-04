@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserPool from "./Userpool";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,17 +29,34 @@ const Signup = () => {
       <form onSubmit={onSubmit}>
         <div className="signUpItem">
           <label htmlFor="email">Email</label>
-          <br/>
-          <input value={email} onChange={(event) => setEmail(event.target.value)} className='signUpInput'></input>
+          <br />
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            className="signUpInput"
+          ></input>
         </div>
         <div className="signUpItem">
           <label htmlFor="password"> Password</label>
-          <br/>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} className='signUpInput'></input>
+          <br />
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            className="signUpInput"
+          ></input>
         </div>
         <div className="signUpItem">
-          <button type="submit" className='applyButton2'>Sign Up</button>
+          <button type="submit" className="applyButton2">
+            Sign Up
+          </button>
         </div>
+        <Link to={"/landing"}>
+          <button>Back</button>
+        </Link>
+        <Link to={"/signin"}>
+          <button>Log In</button>
+        </Link>
       </form>
     </div>
   );

@@ -12,6 +12,7 @@ import "./lib/font-awesome/css/all.min.css";
 import { GlobalProvider } from "./context/GlobalState";
 import Register from "./Components/Register";
 import Signin from "./Components/SignIn";
+import { LandingPage } from "./Components/LandingPage";
 
 import "./App.css";
 import { OurPicks } from "./Components/OurPicks";
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/search" element={<Search />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/signin" element={<Signin />} />
+          <Route exact path="/landing" element={<LandingPage />} />
         </Routes>
       </Router>
     </GlobalProvider>
