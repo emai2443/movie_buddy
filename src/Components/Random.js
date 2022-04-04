@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Movie } from "./Movie";
+import {RandomMovie} from "./RandomMovie";
 
 export const Random = () => {
   const [movies, setMovies] = useState([]);
@@ -41,6 +42,7 @@ export const Random = () => {
         // console.log(data.results);
         // console.log(data.results);
       });
+      console.log(movies[num1])
   };
 
 
@@ -53,7 +55,7 @@ export const Random = () => {
           movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         ; */}
         {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
-        <Movie key={num1} {...movies[num1]} />
+        <RandomMovie key={num1} {...movies[num1]} />
         {/* <Movie key={num2} {...movies[num2]} />
         <Movie key={num3} {...movies[num3]} />
         <Movie key={num4} {...movies[num4]} />

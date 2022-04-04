@@ -19,6 +19,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.randomTitle {
+  padding: 0.5rem;
+}
+
+.randomContainer {
+  background-color: #242629;
+  display: flex;
+  margin: 2rem;
+  padding: 1rem;
+  width: 100rem;
+  font-size: 1.2rem;
+}
+
+.randomContainer img {
+  object-fit: cover;
+  height: 450px;
+  width: 100%;
+}
+
+.randomImage {
+  padding: 1rem;
+}
+
+.randomInfo {
+  flex: 1;
+}
+
+.randomRating {
+  align-items: center;
+  padding: 0 0 25rem 0;
+  display: flex;
+}
+
+.ratingIcon {
+  padding: 0.5rem;
+}
+
 .movie {
   margin: 1rem;
   width: 300px;
