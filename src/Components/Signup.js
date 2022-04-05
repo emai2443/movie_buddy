@@ -24,7 +24,7 @@ const Signup = () => {
   return (
     <div className="signUpStyle">
       <div className="signUpItem">
-        <h2>Sign Up</h2>
+        <h2>Not a member yet? Sign up now!</h2>
       </div>
       <form onSubmit={onSubmit}>
         <div className="signUpItem">
