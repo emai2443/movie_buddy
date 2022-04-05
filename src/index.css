@@ -75,7 +75,7 @@ code {
 
 .movie img {
   object-fit: cover;
-  height: 450px;
+  height: 30rem;
   width: 100%;
 }
 
@@ -91,6 +91,7 @@ code {
   align-items: center;
   justify-content: space-between;
   font-weight: bold;
+  height: 5rem;
 }
 .movie-info h3 {
   margin: 0;
