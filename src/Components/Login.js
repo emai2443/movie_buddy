@@ -53,10 +53,18 @@ const Login = () => {
           </button>
         </div>
         <Link to={"/landing"}>
-          <button>Back</button>
+          <button className="landingButtons">
+            <span class="transition"></span>
+            <span class="gradient"></span>
+            <span class="label">Back</span>
+          </button>
         </Link>
         <Link to={"/register"}>
-          <button>Register</button>
+          <button className="landingButtons">
+            <span class="transition"></span>
+            <span class="gradient"></span>
+            <span class="label">Sign Up</span>
+          </button>
         </Link>
       </form>
     </div>

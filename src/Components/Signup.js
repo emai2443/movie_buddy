@@ -51,12 +51,23 @@ const Signup = () => {
             Sign Up
           </button>
         </div>
-        <Link to={"/landing"}>
-          <button>Back</button>
-        </Link>
-        <Link to={"/signin"}>
-          <button>Log In</button>
-        </Link>
+
+            <Link to={"/landing"}>
+              <button className="landingButtons">
+                <span class="transition"></span>
+                <span class="gradient"></span>
+                <span class="label">Back</span>
+              </button>
+            </Link>
+
+            <Link to={"/signin"}>
+            <button className="landingButtons">
+                <span class="transition"></span>
+                <span class="gradient"></span>
+                <span class="label">Log In</span>
+              </button>
+            </Link>
+
       </form>
     </div>
   );
