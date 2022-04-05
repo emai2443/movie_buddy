@@ -40,7 +40,7 @@ code {
 
 .randomContainer img {
   object-fit: cover;
-  height: auto;
+  height: 500px;
   width: 100%;
 }
 
