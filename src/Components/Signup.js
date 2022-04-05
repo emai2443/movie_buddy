@@ -53,19 +53,21 @@ const Signup = () => {
         </div>
 
             <Link to={"/landing"}>
-              <button className="landingButtons">
-                <span class="transition"></span>
+              <button>
+                {/* <span class="transition"></span>
                 <span class="gradient"></span>
-                <span class="label">Back</span>
+                <span class="label">Back</span> */}
+                Back
               </button>
             </Link>
 
             <Link to={"/signin"}>
-            <button className="landingButtons">
-                <span class="transition"></span>
+            <button>
+                {/* <span class="transition"></span>
                 <span class="gradient"></span>
-                <span class="label">Log In</span>
-              </button>
+                <span class="label">Log In</span> */}
+                Log In
+            </button>
             </Link>
 
       </form>

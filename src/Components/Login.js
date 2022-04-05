@@ -8,7 +8,7 @@ const Login = () => {
   const { authenticate } = useContext(AccountContext);
   const navigate = useNavigate();
   const logIn = () => {
-    navigate("/home");
+    navigate("/user");
   };
   const onSubmit = (event) => {
     event.preventDefault();
@@ -53,17 +53,19 @@ const Login = () => {
           </button>
         </div>
         <Link to={"/landing"}>
-          <button className="landingButtons">
-            <span class="transition"></span>
+          <button>
+            {/* <span class="transition"></span>
             <span class="gradient"></span>
-            <span class="label">Back</span>
+            <span class="label">Back</span> */}
+            Back
           </button>
         </Link>
         <Link to={"/register"}>
-          <button className="landingButtons">
-            <span class="transition"></span>
+          <button>
+            {/* <span class="transition"></span>
             <span class="gradient"></span>
-            <span class="label">Sign Up</span>
+            <span class="label">Sign Up</span> */}
+            Sign Up
           </button>
         </Link>
       </form>
