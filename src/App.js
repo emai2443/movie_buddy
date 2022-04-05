@@ -45,6 +45,7 @@ function App() {
             </>
           ) : (
             <Routes>
+              {console.log(value)}
               <Route exact path="/movie_buddy" element={<LandingPage />} />
               <Route exact path="/register" element={<Register />} />
               <Route exact path="/signin" element={<Signin />} />
