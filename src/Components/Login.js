@@ -48,7 +48,7 @@ const Login = () => {
           ></input>
         </div>
         <div className="signUpItem">
-          <button type="submit" onSuceess={logIn} className="applyButton2">
+          <button type="submit" className="applyButton2">
             Log In
           </button>
         </div>
