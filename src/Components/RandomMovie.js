@@ -29,49 +29,75 @@ const setLanguage = (word) => {
     return "Mandarin";
   } else if (word === "fr") {
     return "French";
-  } else {
+  } else if (word === "th") {
+    return "Thai";
+  } 
+  
+  else {
     return word;
   }
 };
+
+const convertDate = (date) => {
+  var now = new Date(date).toUTCString()
+  now = now.slice(5,now.indexOf('00:'))
+  let month = now.slice(3,6)
+  let day = now.slice(0,3)
+  let year = now.slice(7,-1)
+  return month + " " + day + " " + year
+}
 
 const myPrint = (id) => {
   console.log(id);
 };
 
-export const RandomMovie = ({
-  title,
-  poster_path,
-  overview,
-  vote_average,
-  id,
-  release_date,
-  original_language,
-}) => {
+export const RandomMovie = ({title, poster_path, overview, vote_average, id, release_date, original_language}) => {
   const ACTOR_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+  const MOVIE_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   const [actors, setActors] = useState([]);
-  let temp = ":(";
+  const [genre, setGenre] = useState([]);
+  let actorList = ":("; 
+  let genreList = ">:(";
 
-  useEffect(
-    () =>
-      fetch(ACTOR_API)
-        .then((res) => res.json())
-        .then((data) => {
-          setActors(data.cast);
-        }),
-    []
+  useEffect(() => (
+    fetchActors(),
+    fetchGenres()), []
   );
 
-  if (actors) {
-    ceae();
+  function fetchActors() {
+    fetch(ACTOR_API).then((res) => res.json()).then((data) => {
+      setActors(data.cast);
+    })
   }
 
-  function ceae() {
+  function fetchGenres() {
+    fetch(MOVIE_API).then((res) => res.json()).then((data)=> {
+      setGenre(data.genres);
+    })
+  }
+
+  if (actors) {
+    makeActors();
+  }
+
+  if (genre) {
+    makeGenres();
+  }
+
+  function makeActors() {
     let arr = [];
     actors.forEach((word) => {
       arr.push(word.name);
     });
-    // console.log(arr)
-    temp = arr.slice(0, 10).join(", ");
+    actorList = arr.slice(0, 10).join(", ");
+  }
+
+  function makeGenres() {
+    let arr = [];
+    genre.forEach((word) => {
+      arr.push(word.name);
+    })
+    genreList = arr.join(', ')
   }
 
   return (
@@ -98,9 +124,10 @@ export const RandomMovie = ({
               </span>
             </div>
           </div>
-          <p>Release date: {release_date}</p>
+          <p>Release date: {convertDate(release_date)}</p>
           <p>Language: {setLanguage(original_language)}</p>
-          <p>Actors: {temp}</p>
+          <p>Genres: {genreList}</p>
+          <p>Actors: {actorList}</p>
           <p>Overview: {overview}</p>
         </div>
         <div className="randomRating">

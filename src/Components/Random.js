@@ -42,7 +42,6 @@ export const Random = () => {
         // console.log(data.results);
         // console.log(data.results);
       });
-      console.log(movies[num1])
   };
 
 
