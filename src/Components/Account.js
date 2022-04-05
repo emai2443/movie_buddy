@@ -2,6 +2,9 @@ import React, { createContext } from "react";
 import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 import Pool from "./Userpool";
 import { useNavigate } from "react-router-dom";
+import { Home } from "./Home";
+import { LandingPage } from "./LandingPage";
+import App from "../App";
 
 export const AccountContext = createContext();
 

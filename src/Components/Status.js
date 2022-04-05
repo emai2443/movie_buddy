@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AccountContext } from "./Account";
+import { userContext } from "./UserContext";
 
 const Status = () => {
+  const { value, setValue } = useContext(userContext);
   const [status, setStatus] = useState(false);
 
   const { getSession, logout } = useContext(AccountContext);
@@ -12,10 +14,33 @@ const Status = () => {
       setStatus(true);
     });
   }, []);
+
+  const biggerFunc = () => {
+    logout();
+    setValue(false);
+  };
   return (
-    <div style={{ fontSize: "24px" }} className='settingsCenter'>
-      {status ? <button onClick={logout} className='applyButton2'>Logout</button> : <h3>Please Login</h3>}
-    </div>
+    <AccountContext.Provider value={{ getSession, logout }}>
+      <div style={{ fontSize: "24px" }} className="settingsCenter">
+        {status ? (
+          <div>
+            {setValue(true)}
+            <button onClick={biggerFunc} className="applyButton2">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <h3>Please Login</h3>
+        )}
+        {/* <button
+          onClick={() => {
+            setValue(true);
+          }}
+        >
+          Button
+        </button> */}
+      </div>
+    </AccountContext.Provider>
   );
 };
 export default Status;

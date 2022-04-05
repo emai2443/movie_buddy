@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext, useState, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./Components/Header";
 import { Watchlist } from "./Components/Watchlist";
@@ -13,31 +13,50 @@ import { GlobalProvider } from "./context/GlobalState";
 import Register from "./Components/Register";
 import Signin from "./Components/SignIn";
 import { LandingPage } from "./Components/LandingPage";
-
+import { userContext } from "./Components/UserContext";
 import "./App.css";
 import { OurPicks } from "./Components/OurPicks";
+import { AccountContext } from "./Components/Account";
 function App() {
+  const [value, setValue] = useState(false);
   return (
-    <GlobalProvider>
-      <Router>
-        <Header />
-
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/movie_buddy" element={<Home />} />
-          <Route exact path="/watchlist" element={<Watchlist />} />
-          <Route exact path="/user" element={<User />} />
-          <Route exact path="/watched" element={<Watched />} />
-          <Route exact path="/random" element={<Random />} />
-          <Route exact path="/filter" element={<Filter />} />
-          <Route exact path="/ourpick" element={<OurPicks />} />
-          <Route exact path="/search" element={<Search />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/signin" element={<Signin />} />
-          <Route exact path="/landing" element={<LandingPage />} />
-        </Routes>
-      </Router>
-    </GlobalProvider>
+    <userContext.Provider value={{ value, setValue }}>
+      <GlobalProvider>
+        <Router>
+          {value ? (
+            <>
+              <Header />
+              <Routes>
+                {console.log(value)}
+                <Route exact path="/home" element={<Home />} />
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/movie_buddy" element={<LandingPage />} />
+                <Route exact path="/watchlist" element={<Watchlist />} />
+                <Route exact path="/user" element={<User />} />
+                <Route exact path="/watched" element={<Watched />} />
+                <Route exact path="/random" element={<Random />} />
+                <Route exact path="/filter" element={<Filter />} />
+                <Route exact path="/ourpick" element={<OurPicks />} />
+                <Route exact path="/search" element={<Search />} />
+                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/signin" element={<Signin />} />
+                <Route exact path="/landing" element={<LandingPage />} />
+              </Routes>
+            </>
+          ) : (
+            <Routes>
+              <Route exact path="/movie_buddy" element={<LandingPage />} />
+              <Route exact path="/register" element={<Register />} />
+              <Route exact path="/signin" element={<Signin />} />
+              <Route exact path="/user" element={<User />} />
+              <Route exact path="/home" element={<Home />} />
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/landing" element={<LandingPage />} />
+            </Routes>
+          )}
+        </Router>
+      </GlobalProvider>
+    </userContext.Provider>
   );
 }
 
