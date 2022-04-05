@@ -32,13 +32,6 @@ const Status = () => {
         ) : (
           <h3>Please Login</h3>
         )}
-        {/* <button
-          onClick={() => {
-            setValue(true);
-          }}
-        >
-          Button
-        </button> */}
       </div>
     </AccountContext.Provider>
   );
