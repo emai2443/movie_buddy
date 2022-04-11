@@ -35,12 +35,12 @@ export const Header = () => {
                   User
                 </Link>
                 <div className="dropdown-content">
-                  <Link to="/signin">
+                  {/* <Link to="/signin"> */}
                     <p>Sign In</p>
-                  </Link>
-                  <Link to="/register">
+                  {/* </Link>
+                  <Link to="/register"> */}
                     <p>Register</p>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </div>
             </li>

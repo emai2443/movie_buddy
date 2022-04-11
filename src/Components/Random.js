@@ -10,7 +10,7 @@ export const Random = () => {
   var RANDOM_API = `https://api.themoviedb.org/3/movie/${random}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&adult=false`;
 
   let page = Math.floor(Math.random() * 10 + 1);
-  let TEST_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=${page}&sort_by=popularity.desc`;
+  let TEST_API = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=${page}&sort_by=popularity.desc&vote_average.gte=7&vote_average.lte=10`;
 
   useEffect(() => {
     getMovies(TEST_API);
