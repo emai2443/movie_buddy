@@ -42,10 +42,13 @@ export const ViewMore = () => {
         console.log(number)
         if(number === 1) {
             getMovies(FEATURED_API + `&page=${pageNumber}`)
+            window.scroll(0,0)
         } else if (number === 2) {
             getMovies(NOW_PLAYING_API + `&page=${pageNumber}`)
+            window.scroll(0,0)
         } else if (number === 3) {
             getMovies(TOP_RATED_API + `&page=${pageNumber}`)
+            window.scroll(0,0)
         }
     }
 
