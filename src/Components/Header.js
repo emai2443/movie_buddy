@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
@@ -31,16 +31,14 @@ export const Header = () => {
             </li>
             <li>
               <div className="dropdown">
-                <Link to="/user" className="btn">
-                  User
-                </Link>
+                <i className="fa-solid fa-user btn"></i>
                 <div className="dropdown-content">
-                  {/* <Link to="/signin"> */}
-                    <p>Sign In</p>
-                  {/* </Link>
-                  <Link to="/register"> */}
-                    <p>Register</p>
-                  {/* </Link> */}
+                  <Link to="/userprofile">
+                    <p>Profile</p>
+                  </Link>
+                  <Link to="/user">
+                    <p>Settings</p>
+                  </Link>
                 </div>
               </div>
             </li>

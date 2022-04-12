@@ -16,8 +16,9 @@ import { LandingPage } from "./Components/LandingPage";
 import { userContext } from "./Components/UserContext";
 import "./App.css";
 import { OurPicks } from "./Components/OurPicks";
-import { AccountContext } from "./Components/Account";
-import {ViewMore} from "./Components/ViewMore"
+import { UserProfile } from "./Components/UserProfile";
+import { ViewMore } from "./Components/ViewMore";
+
 function App() {
   const [value, setValue] = useState(false);
   return (
@@ -43,6 +44,7 @@ function App() {
                 <Route exact path="/signin" element={<Signin />} />
                 <Route exact path="/landing" element={<LandingPage />} />
                 <Route exact path="/viewmore" element={<ViewMore />} />
+                <Route exact path="/profile" element={<UserProfile />} />
               </Routes>
             </>
           ) : (
