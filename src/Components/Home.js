@@ -111,7 +111,7 @@ export const Home = () => {
           <BtnSlider moveSlide={prevSlide1} direction={"prev"}/>
       </div>
       
-      <h3 className="viewMore"><Link to={"/viewmore"} onClick={() => testing(1)}>View More...</Link></h3>
+      <h2 className="viewMore"><Link to={"/viewmore"} onClick={() => testing(1)}>View More...</Link></h2>
       <br/>
       
 
@@ -133,7 +133,7 @@ export const Home = () => {
         <BtnSlider moveSlide={prevSlide2} direction={"prev"}/>
       </div> 
       
-      <h3 className="viewMore"><Link to={"/viewmore"} onClick={() => testing(2)}>View More...</Link></h3>
+      <h2 className="viewMore"><Link to={"/viewmore"} onClick={() => testing(2)}>View More...</Link></h2>
       <br/>
       
 
@@ -154,7 +154,7 @@ export const Home = () => {
         <BtnSlider moveSlide={prevSlide3} direction={"prev"}/>
       </div> 
       
-      <h3 className='viewMore'><Link to={"/viewmore"} onClick={() => testing(3)}>View More...</Link></h3>
+      <h2 className='viewMore'><Link to={"/viewmore"} onClick={() => testing(3)}>View More...</Link></h2>
       
     </>
   );

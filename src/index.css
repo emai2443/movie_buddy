@@ -24,6 +24,7 @@ code {
 .flex {
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 
 .randomTitle {
@@ -482,9 +483,6 @@ button:active {
 .btn-slide {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: #f1f1f1;
-  border: 1px solid rgba(34, 34, 34, 0.287);
   position: absolute;
   display: flex;
   justify-content: center;
@@ -500,11 +498,13 @@ button:active {
 .prev {
   top: 50%;
   left: 20px;
+  border-radius: 50%;
   /* transform: translateY(-60%); */
 }
 .next {
   top: 50%;
   right: 20px;
+  border-radius: 50%;
   /* transform: translateY(-60%); */
 }
 .slide img {
@@ -529,6 +529,33 @@ button:active {
   padding: 3rem;
 }
 
+.userPage {
+  display: flex;
+  padding: 5rem;
+  background-color: #94a1b2;
+}
+
+.userPageContent {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.userNumber {
+  text-align: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: 2.5px solid rgb(255, 252, 252);
+  padding: 0.55rem 0 0 0;
+  margin: 1rem;
+}
+
+.userIMG {
+  height: 4rem;
+  width: 4rem;
+}
 
 /* COLORS */
 

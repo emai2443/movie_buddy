@@ -44,7 +44,7 @@ function App() {
                 <Route exact path="/signin" element={<Signin />} />
                 <Route exact path="/landing" element={<LandingPage />} />
                 <Route exact path="/viewmore" element={<ViewMore />} />
-                <Route exact path="/profile" element={<UserProfile />} />
+                <Route exact path="/userprofile" element={<UserProfile />} />
               </Routes>
             </>
           ) : (
