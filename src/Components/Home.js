@@ -10,6 +10,9 @@ const TOP_RATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${pr
 
 export let number = 1;
 export const Home = () => {
+
+
+
   const [movies1, setMovies1] = useState([]);
   const [movies2, setMovies2] = useState([]);
   const [movies3, setMovies3] = useState([]);
@@ -101,9 +104,6 @@ export const Home = () => {
               <div className={slideIndex1 === index + 1 ? "slide active-anim" : "slide movie"} key={movie.id}>
                   <Movie {...movie} />
                   <Movie {...movies1[index+1]} />
-                  <Movie {...movies1[index+2]} />
-                  <Movie {...movies1[index+3]} />
-                  <Movie {...movies1[index+4]} />
               </div>
               )
           })}

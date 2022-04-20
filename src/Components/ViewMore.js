@@ -10,6 +10,8 @@ export const ViewMore = () => {
     const NOW_PLAYING_API = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
     const TOP_RATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
 
+
+
     const [movies, setMovies] = useState([]);
     let API = ``
     function setAPI () {
@@ -66,11 +68,11 @@ export const ViewMore = () => {
             movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         </div>
         <div className="pages">
-            <div className="pagesNumber"><button onClick={() => setPage(1)}>1</button></div>
-            <div className="pagesNumber"><button onClick={() => setPage(2)}>2</button></div>
-            <div className="pagesNumber"><button onClick={() => setPage(3)}>3</button></div>
-            <div className="pagesNumber"><button onClick={() => setPage(4)}>4</button></div>
-            <div className="pagesNumber"><button onClick={() => setPage(5)}>5</button></div>
+            <div className="pagesNumber"><button onClick={() => setPage(1)} className="pageButton">1</button></div>
+            <div className="pagesNumber"><button onClick={() => setPage(2)} className="pageButton">2</button></div>
+            <div className="pagesNumber"><button onClick={() => setPage(3)} className="pageButton">3</button></div>
+            <div className="pagesNumber"><button onClick={() => setPage(4)} className="pageButton">4</button></div>
+            <div className="pagesNumber"><button onClick={() => setPage(5)} className="pageButton">5</button></div>
         </div>
         </>
     );

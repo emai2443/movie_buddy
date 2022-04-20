@@ -114,7 +114,7 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
           />
         </div>
         <div className="randomInfo">
-          <div className="flex">
+          <div className="flex margin">
             <div className="randomTitle">
               <h2>{title}</h2>
             </div>
