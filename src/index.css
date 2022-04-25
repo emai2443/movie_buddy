@@ -24,11 +24,12 @@ code {
 .flex {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem 1rem 0;
+  margin: 0;
 }
 
 .randomTitle {
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .randomContainer {
@@ -551,6 +552,10 @@ button:active {
   background-color: gray;
   height: 2rem;
   width: 2rem;
+  opacity: 1;
+}
+.pagesNumber3 {
+  opacity: 0;
 }
 
 .userPage {
@@ -640,7 +645,10 @@ button:active {
 
 
 /* COLORS */
-
+.swiper {
+  width: 110rem;
+  height: 620px;
+}
 
 .carousel {
   background: #EEE;

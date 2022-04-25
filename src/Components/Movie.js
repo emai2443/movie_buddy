@@ -129,7 +129,7 @@ export const Movie = ({ title, poster_path, overview, vote_average,id, release_d
 
   return (
   <div className="movie" >
-    <div className="movie-header"  >
+    <div className="movie-header">
       <img
         src={
           poster_path
