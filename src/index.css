@@ -543,7 +543,7 @@ button:active {
 }
 
 .pagesNumber {
-  padding: 2.5rem;
+  padding: 1.5rem;
 }
 .pageButton {
   all: unset;
@@ -647,7 +647,8 @@ button:active {
 /* COLORS */
 .swiper {
   width: 110rem;
-  height: 620px;
+  height: 120%;
+  overflow: hidden;
 }
 
 .carousel {
