@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Account } from "./Account";
+import Status from "./Status";
 
 export const Header = () => {
   return (
@@ -34,11 +36,16 @@ export const Header = () => {
                 <i className="fa-solid fa-user btn"></i>
                 <div className="dropdown-content">
                   <Link to="/userprofile">
-                    <p>Profile</p>
+                    <p className ="settingsCenter">Profile</p>
                   </Link>
                   <Link to="/user">
-                    <p>Settings</p>
+                    <p className ="settingsCenter">Settings</p>
                   </Link>
+                  <p>
+                    <Account>
+                      <Status />
+                    </Account>
+                  </p>
                 </div>
               </div>
             </li>
