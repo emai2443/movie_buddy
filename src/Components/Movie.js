@@ -201,7 +201,7 @@ export const Movie = ({
                   </a>
                 </div>
                 <div className="watchButton ratingIcon">
-                  <a onClick={() => myPrint()}>
+                  <a onClick={() => handleClose()}>
                     <button type="button" className="button-5">
                       <i className="fa-solid fa-eye fa-lg"></i>
                     </button>

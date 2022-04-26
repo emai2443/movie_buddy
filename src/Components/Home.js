@@ -55,7 +55,6 @@ export const Home = () => {
       spaceBetween={50}
       slidesPerView={5}
       navigation
-      pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       >
         {movies1.length > 0 && movies1.map((movie)=> 
@@ -72,7 +71,6 @@ export const Home = () => {
       spaceBetween={50}
       slidesPerView={5}
       navigation
-      pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       >
         {movies2.length > 0 && movies2.map((movie)=> 
@@ -89,7 +87,6 @@ export const Home = () => {
       spaceBetween={50}
       slidesPerView={5}
       navigation
-      pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       >
 

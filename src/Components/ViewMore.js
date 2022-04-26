@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 
 var API = ``;
 
+
 export const ViewMore = () => {
   const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}&vote_average.gte=7&vote_average.lte=10`;
   const NOW_PLAYING_API = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&vote_average.gte=4`;
