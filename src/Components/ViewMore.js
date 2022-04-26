@@ -20,7 +20,7 @@ export const ViewMore = () => {
   const handleChange = (event, value) => {
     setPage(value);
     getMovies(API + `&page=${value}`);
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
   };
 
   function setAPI() {
@@ -68,6 +68,11 @@ export const ViewMore = () => {
             size="large"
             page={page}
             onChange={handleChange}
+            sx = {{
+                  backgroundColor: "#ffffff", 
+                  borderColor: 'transparent',
+                  borderRadius: "5px",
+              }}
           />
         </div>
       </div>
