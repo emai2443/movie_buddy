@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "https://kit.fontawesome.com/afb5c9b5bb.js"; //Button Icons
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
@@ -63,22 +61,6 @@ const convertDate = (date) => {
 const myPrint = (id) => {
   console.log(id);
 };
-
-const btnClick = (id) => {
-  console.log(id);
-  var modal = document.getElementById(id);
-  if (modal) modal.style.display = "block";
-  console.log("block");
-};
-
-const spanClick = (id) => {
-  var modal = document.getElementById(id);
-  if (modal) modal.style.display = "none";
-  console.log("none");
-};
-
-// const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
-
 export const Movie = ({
   title,
   poster_path,
@@ -179,17 +161,10 @@ export const Movie = ({
           <div id={id}>
             <div className="modal-content">
               <div className="randomImage">
-                {/* <img
-                  src={
-                    poster_path
-                      ? IMG_API + poster_path
-                      : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                  }
-                  alt={title}
-                /> */}
-                <CardMedia style={{
+                <CardMedia
+                  style={{
                     width: "300px",
-                    height: "480px"
+                    height: "480px",
                   }}
                   component="img"
                   image={
@@ -237,70 +212,6 @@ export const Movie = ({
           </div>
         </Box>
       </Modal>
-
-      <div
-        id={id}
-        className="modal"
-        onClick={() => spanClick(id)}
-        style={{ display: "none" }}
-      >
-        <div className="modal-content">
-          <div className="randomImage">
-            <img
-              src={
-                poster_path
-                  ? IMG_API + poster_path
-                  : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-              }
-              alt={title}
-            />
-          </div>
-          <div className="randomInfo">
-            <div className="flex margin">
-              <div className="randomTitle">
-                <h2>{title}</h2>
-              </div>
-              <div className="randomTitle">
-                <span className={`tag ${setVoteClass(vote_average)}`}>
-                  {vote_average}
-                </span>
-              </div>
-            </div>
-            <p>Release date: {convertDate(release_date)}</p>
-            <p>Language: {setLanguage(original_language)}</p>
-            <p>Genres: {genreList}</p>
-            <p>Actors: {actorList}</p>
-            <p>Overview: {overview}</p>
-          </div>
-          <div className="randomRating">
-            <div className="watchButton ratingIcon">
-              <a onClick={() => myPrint(id)}>
-                <button type="button" className="button-5">
-                  <i className="fa-solid fa-plus fa-lg"></i>
-                </button>
-              </a>
-            </div>
-            <div className="watchButton ratingIcon">
-              <a onClick={() => myPrint()}>
-                <button type="button" className="button-5">
-                  <i className="fa-solid fa-eye fa-lg"></i>
-                </button>
-              </a>
-            </div>
-          </div>
-          <div className="closeFlex">
-            <span className="close" onClick={() => spanClick(id)}>
-              &times;
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* <div className="movie-container">
-            {similar.length > 0 &&
-            similar.slice(0,5).map((movie) => <Movie key={movie.id} {...movie} />)}
-        </div> */}
-      {/* {/* </div> */}
     </div>
   );
 };
