@@ -15,7 +15,6 @@ body {
   color: white;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -89,7 +88,7 @@ code {
   height: 30rem;
   width: 100%;
   cursor: pointer;
-	opacity: 1;
+  opacity: 1;
   -webkit-filter: brightness(90%);
   transition: all 0.5s ease;
 }
@@ -350,7 +349,6 @@ code {
   text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
   height: 35rem;
   width: 35rem;
-  
 }
 
 .signUpStyle text {
@@ -390,8 +388,6 @@ code {
   border-color: #000000;
 }
 
-
-
 .settingsStyle {
   border-radius: 5px;
   display: block;
@@ -418,7 +414,7 @@ code {
   padding: 0.7em 2em;
   margin: 10px;
   font-weight: 500;
-  background: #1F2937;
+  background: #1f2937;
   color: white;
   border: none;
   position: relative;
@@ -434,7 +430,11 @@ code {
   top: 0;
   border-radius: 0.6em;
   margin-top: -0.25em;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
 }
 
 .label {
@@ -488,7 +488,6 @@ button:active {
   margin: 1rem 0 0 0;
 }
 
-
 .slide img {
   width: 100%;
   height: 100%;
@@ -528,7 +527,6 @@ button:active {
   height: 30rem;
 }
 /* /////////////////////////////////////////////////////////////////// */
-
 
 .viewMore {
   text-align: right;
@@ -586,22 +584,19 @@ button:active {
   width: 4rem;
 }
 
-
-
 .modal {
   display: none;
-  position: fixed;
+  position: relative;
   z-index: 1;
   padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4); 
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
-
 
 .modal-content {
   background-color: #242629;
@@ -615,10 +610,9 @@ button:active {
   font-size: 1.1rem;
 }
 
-
 .close {
   color: #aaaaaa;
-  z-index: 1; 
+  z-index: 1;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -643,7 +637,6 @@ button:active {
   max-width: 200px;
 }
 
-
 /* COLORS */
 .swiper {
   width: 110rem;
@@ -652,14 +645,14 @@ button:active {
 }
 
 .carousel {
-  background: #EEE;
+  background: #eee;
 }
 
 .carousel-cell {
   width: 66%;
   height: 200px;
   margin-right: 10px;
-  background: #8C8;
+  background: #8c8;
   border-radius: 5px;
   counter-increment: carousel-cell;
 }
@@ -673,7 +666,6 @@ button:active {
   font-size: 80px;
   color: white;
 }
-
 
 header {
   background-color: #242629;
