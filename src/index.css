@@ -52,6 +52,7 @@ code {
   padding: 1rem;
 }
 
+
 .randomInfo {
   flex: 1;
   text-align: left;
@@ -609,7 +610,7 @@ button:active {
   width: 100rem;
   font-size: 1.1rem;
 }
-
+/* 
 .close {
   color: #aaaaaa;
   z-index: 1;
@@ -635,7 +636,7 @@ button:active {
   max-height: 480px;
   width: 100%;
   max-width: 200px;
-}
+} */
 
 /* COLORS */
 .swiper {

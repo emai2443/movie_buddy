@@ -4,10 +4,12 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { CardMedia } from "@mui/material";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const style = {
+  display: "flex",
   position: "absolute",
   top: "50%",
   left: "25%",
@@ -177,13 +179,25 @@ export const Movie = ({
           <div id={id}>
             <div className="modal-content">
               <div className="randomImage">
-                <img
+                {/* <img
                   src={
                     poster_path
                       ? IMG_API + poster_path
                       : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                   }
                   alt={title}
+                /> */}
+                <CardMedia style={{
+                    width: "300px",
+                    height: "480px"
+                  }}
+                  component="img"
+                  image={
+                    poster_path
+                      ? IMG_API + poster_path
+                      : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  }
+                  title={title}
                 />
               </div>
               <div className="randomInfo">
