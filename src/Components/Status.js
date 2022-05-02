@@ -26,12 +26,13 @@ const Status = () => {
         {status ? (
           <div>
             {setValue(true)}
-            <button onClick={biggerFunc} className="applyButton2">
+            {/* <button onClick={biggerFunc} className="applyButton2">
               Logout
-            </button>
+            </button> */}
           </div>
         ) : (
-          <h3>Please Login</h3>
+          // <h3>Please Login</h3>
+          console.log("hlelo")
         )}
       </div>
     </AccountContext.Provider>
