@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
 import { Account } from "./Account";
 import Status from "./Status";
+import { Movie } from "./Movie";
 
 export const Search = () => {
   const [query, setQuery] = useState("");
@@ -46,7 +47,7 @@ export const Search = () => {
           <div className="movie-container">
             {movies.map((movie) => (
               <div key={movie.id}>
-                <ResultCard movie={movie} />
+                <Movie key={movie.id} {...movie} />
               </div>
             ))}
           </div>
