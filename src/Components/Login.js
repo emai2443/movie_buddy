@@ -8,8 +8,9 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { deepPurple } from "@mui/material/colors";
+import ErrorIcon from "@mui/icons-material/Error";
 
-import Modal from '@mui/material/Modal';
+import Modal from "@mui/material/Modal";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,20 +30,24 @@ const Login = () => {
       .then(logIn)
       .catch((err) => {
         console.error("Failed to login", err);
-        handleOpen()
+        handleOpen();
       });
   };
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    display: "flex",
+    justifyContent: "center",
+    alignItem: "center",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    backgroundColor: 'white',
-    border: '2px solid #000',
+    backgroundColor: "white",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
+    margin: 0,
   };
 
   const [open, setOpen] = React.useState(false);
@@ -51,21 +56,30 @@ const Login = () => {
 
   return (
     <>
-    <Modal
-    open={open}
-    onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description"
-  >
-    <Box sx={style}>
-      <Typography id="modal-modal-title" variant="h6" component="h2"sx={{ mt: 2 , color: "black"}}>
-        Text in a modal
-      </Typography>
-      <Typography id="modal-modal-description" sx={{ mt: 2 , color: "black"}}>
-        Wrng pass my guy
-      </Typography>
-    </Box>
-  </Modal>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            sx={{ mt: 2, color: "red" }}
+          >
+            <ErrorIcon fontSize="large" />
+          </Typography>
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, color: "black", marginLeft: 2 }}
+          >
+            <strong>Log in Failed!</strong>
+            <br /> Please check your email and password!!!
+          </Typography>
+        </Box>
+      </Modal>
       <Container
         component="main"
         maxWidth="sm"
