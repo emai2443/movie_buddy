@@ -15,7 +15,7 @@ const Login = () => {
   const { authenticate } = useContext(AccountContext);
   const navigate = useNavigate();
   const logIn = () => {
-    navigate("/user");
+    navigate("/home");
   };
   const onSubmit = (event) => {
     event.preventDefault();
