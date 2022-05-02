@@ -5,12 +5,10 @@ import Status from "./Status";
 
 const SignIn = () => {
   return (
-    <div className="signUpStyle">
     <Account>
       <Status />
       <Login />
     </Account>
-    </div>
   );
 };
 export default SignIn;

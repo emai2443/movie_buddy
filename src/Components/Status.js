@@ -19,9 +19,10 @@ const Status = () => {
     logout();
     setValue(false);
   };
+
   return (
     <AccountContext.Provider value={{ getSession, logout }}>
-      <div style={{ fontSize: "24px" }} className="settingsCenter">
+      <div style={{ fontSize: "16px" }} className="settingsCenter">
         {status ? (
           <div>
             {setValue(true)}

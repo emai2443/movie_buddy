@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Movie } from "./Movie";
 import { Link } from "react-router-dom";
+import { Header } from "./Header";
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';

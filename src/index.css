@@ -339,7 +339,7 @@ code {
   border-radius: 5px;
   display: grid;
   justify-content: center;
-  padding: 5rem;
+  padding: 3rem;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -348,8 +348,8 @@ code {
   font-size: larger;
   font-weight: bold;
   text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
-  height: 35rem;
-  width: 35rem;
+  /* height: 35rem;
+  width: 35rem; */
 }
 
 .signUpStyle text {
