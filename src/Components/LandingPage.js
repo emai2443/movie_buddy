@@ -1,20 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import { deepPurple } from '@mui/material/colors';
-import { AccountContext } from "./Account";
+import React from "react";
 import { Landing } from "./Landing";
 import { Account } from "./Account";
 
 
 
 export const LandingPage = () => {
-
 
   return (
       // <div className="signUpStyle">
