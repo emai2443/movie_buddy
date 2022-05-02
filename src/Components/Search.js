@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
+import { Account } from "./Account";
+import Status from "./Status";
 
 export const Search = () => {
   const [query, setQuery] = useState("");
@@ -25,28 +27,31 @@ export const Search = () => {
   };
 
   return (
-    <div className="add-page">
-      <div className="container">
-        <div className="add-content">
-          <div className="input-wrapper">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={query}
-              onChange={onChange}
-            />
+    <Account>
+      <Status />
+      <div className="add-page">
+        <div className="container">
+          <div className="add-content">
+            <div className="input-wrapper">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={query}
+                onChange={onChange}
+              />
+            </div>
           </div>
         </div>
+        {movies.length > 0 && (
+          <div className="movie-container">
+            {movies.map((movie) => (
+              <div key={movie.id}>
+                <ResultCard movie={movie} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      {movies.length > 0 && (
-        <div className="movie-container">
-          {movies.map((movie) => (
-            <div key={movie.id}>
-              <ResultCard movie={movie} />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    </Account>
   );
 };

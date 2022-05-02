@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Movie } from "./Movie";
-import {RandomMovie} from "./RandomMovie";
+import { RandomMovie } from "./RandomMovie";
+import { Account } from "./Account";
+import Status from "./Status";
 
 export const Random = () => {
   const [movies, setMovies] = useState([]);
@@ -22,17 +24,16 @@ export const Random = () => {
     page = Math.floor(Math.random() * 10 + 1);
     num1 = Math.floor(Math.random() * 19 + 1);
 
-    if(page == 9 && num1 == 10) {
-      reroll()
-      console.log('worked1')
+    if (page == 9 && num1 == 10) {
+      reroll();
+      console.log("worked1");
     } else if (page == 8 && num1 == 9) {
-      reroll()
-      console.log('worked2')
+      reroll();
+      console.log("worked2");
     } else {
       getMovies(TEST_API);
     }
-
-  }
+  };
 
   const getMovies = (url) => {
     fetch(url)
@@ -44,26 +45,28 @@ export const Random = () => {
       });
   };
 
-
-
   return (
     <>
-      <div></div>
-      <div className="movie-container">
-        {/* {movies.length > 0 &&
+      <Account>
+        <Status />
+        <div></div>
+        <div className="movie-container">
+          {/* {movies.length > 0 &&
           movies.map((movie) => <Movie key={movie.id} {...movie} />)}
         ; */}
-        {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
-        <RandomMovie key={num1} {...movies[num1]} />
-        {/* <Movie key={num2} {...movies[num2]} />
+          {/* {movies.map((movie) => <Movie key={movie.id}{...movie}/>)} */}
+          <RandomMovie key={num1} {...movies[num1]} />
+          {/* <Movie key={num2} {...movies[num2]} />
         <Movie key={num3} {...movies[num3]} />
         <Movie key={num4} {...movies[num4]} />
         <Movie key={num5} {...movies[num5]} /> */}
-      </div>
-      <div className="refreshButton">
-        <button className='applyButton' onClick={()=>reroll() }>Refresh</button>
-      </div>
-      
+        </div>
+        <div className="refreshButton">
+          <button className="applyButton" onClick={() => reroll()}>
+            Refresh
+          </button>
+        </div>
+      </Account>
     </>
   );
 };

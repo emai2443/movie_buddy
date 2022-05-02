@@ -32,7 +32,7 @@ const Status = () => {
           </div>
         ) : (
           // <h3>Please Login</h3>
-          console.log("hlelo")
+          console.log("Please Pass Us")
         )}
       </div>
     </AccountContext.Provider>
