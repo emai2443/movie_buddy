@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { deepPurple } from "@mui/material/colors";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import Modal from '@mui/material/Modal';
 
@@ -57,7 +58,7 @@ const Login = () => {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
   >
-    <Box sx={style}>
+    <Box sx={style}><DeleteIcon />
       <Typography id="modal-modal-title" variant="h6" component="h2"sx={{ mt: 2 , color: "black"}}>
         Text in a modal
       </Typography>
@@ -101,7 +102,8 @@ const Login = () => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
+              autoFocus 
+              variant="filled"
               style={{ backgroundColor: "white", borderRadius: 5 }}
               onChange={(event) => setEmail(event.target.value)}
             />
@@ -113,6 +115,7 @@ const Login = () => {
               label="Password"
               type="password"
               id="password"
+              variant="filled"
               autoComplete="current-password"
               style={{ backgroundColor: "white", borderRadius: 5 }}
               onChange={(event) => setPassword(event.target.value)}

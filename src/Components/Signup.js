@@ -98,6 +98,7 @@ const Signup = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              variant="filled"
               style={{backgroundColor: "white",borderRadius: 5}}
               onChange={(event) => setEmail(event.target.value)}
               />
@@ -109,6 +110,7 @@ const Signup = () => {
                 label="Password"
                 type="password"
                 id="password"
+                variant="filled"
                 autoComplete="current-password"
                 style={{backgroundColor: "white",borderRadius: 5}}
                 onChange={(event) => setPassword(event.target.value)}
