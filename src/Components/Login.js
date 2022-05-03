@@ -8,11 +8,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { deepPurple } from "@mui/material/colors";
-<<<<<<< HEAD
-import DeleteIcon from '@mui/icons-material/Delete';
-=======
 import ErrorIcon from "@mui/icons-material/Error";
->>>>>>> c52225be4156343788f1cb92e7b735497ac01136
 
 import Modal from "@mui/material/Modal";
 
@@ -60,23 +56,6 @@ const Login = () => {
 
   return (
     <>
-<<<<<<< HEAD
-    <Modal
-    open={open}
-    onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description"
-  >
-    <Box sx={style}><DeleteIcon />
-      <Typography id="modal-modal-title" variant="h6" component="h2"sx={{ mt: 2 , color: "black"}}>
-        Text in a modal
-      </Typography>
-      <Typography id="modal-modal-description" sx={{ mt: 2 , color: "black"}}>
-        Wrng pass my guy
-      </Typography>
-    </Box>
-  </Modal>
-=======
       <Modal
         open={open}
         onClose={handleClose}
@@ -101,7 +80,6 @@ const Login = () => {
           </Typography>
         </Box>
       </Modal>
->>>>>>> c52225be4156343788f1cb92e7b735497ac01136
       <Container
         component="main"
         maxWidth="sm"
