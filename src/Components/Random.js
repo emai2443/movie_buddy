@@ -24,10 +24,10 @@ export const Random = () => {
     page = Math.floor(Math.random() * 10 + 1);
     num1 = Math.floor(Math.random() * 19 + 1);
 
-    if (page == 9 && num1 == 10) {
+    if (page === 9 && num1 === 10) {
       reroll();
       console.log("worked1");
-    } else if (page == 8 && num1 == 9) {
+    } else if (page === 8 && num1 === 9) {
       reroll();
       console.log("worked2");
     } else {
