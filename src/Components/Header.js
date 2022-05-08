@@ -4,6 +4,7 @@ import { Account } from "./Account";
 import Status from "./Status";
 
 export const Header = () => {
+
   return (
     <header>
       <div className="container">
@@ -35,17 +36,9 @@ export const Header = () => {
               <div className="dropdown">
                 <i className="fa-solid fa-user btn"></i>
                 <div className="dropdown-content">
-                  <Link to="/userprofile">
-                    <p className ="settingsCenter">Profile</p>
-                  </Link>
-                  <Link to="/user">
-                    <p className ="settingsCenter">Settings</p>
-                  </Link>
-                  <p>
-                    <Account>
-                      <Status />
-                    </Account>
-                  </p>
+                  <p className ="settingsCenter"><Link to="/userprofile">Profile</Link></p>
+                  <p className ="settingsCenter"><Link to="/user">Settings</Link></p>
+                  <p className ="settingsCenter">Logout</p>
                 </div>
               </div>
             </li>
