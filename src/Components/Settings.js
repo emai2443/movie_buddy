@@ -19,6 +19,7 @@ export default () => {
   const biggerFunc = () => {
     logout();
     setValue(false);
+    console.log('logged out')
   };
 
   return (
@@ -30,7 +31,7 @@ export default () => {
           <ChangePassword />
           <h4>Change Email</h4>
           <ChangeEmail />
-            <button onClick={()=>biggerFunc} className="applyButton2">
+            <button onClick={biggerFunc} className="applyButton2">
               Logout
             </button>
         </>
