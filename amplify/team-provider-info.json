@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-moviebuddy-dev-200313-authRole",
+      "UnauthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-dev-200313-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-dev-200313-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-moviebuddy-dev-200313-deployment",
+      "UnauthRoleName": "amplify-moviebuddy-dev-200313-unauthRole",
+      "StackName": "amplify-moviebuddy-dev-200313",
+      "StackId": "arn:aws:cloudformation:us-east-1:752092771872:stack/amplify-moviebuddy-dev-200313/6bb63790-cf2b-11ec-8d80-0e49ae328899",
+      "AmplifyAppId": "d13p8xn3hkflno"
+    }
+  }
+}
