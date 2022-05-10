@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "https://kit.fontawesome.com/afb5c9b5bb.js"; //Button Icons
+// import "https://kit.fontawesome.com/afb5c9b5bb.js"; //Button Icons
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { CardMedia } from "@mui/material";

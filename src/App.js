@@ -31,7 +31,7 @@ function App() {
               <Routes>
                 {console.log(value)}
                 <Route exact path="/home" element={<Home />} />
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<LandingPage />} />
                 <Route exact path="/movie_buddy" element={<LandingPage />} />
                 <Route exact path="/watchlist" element={<Watchlist />} />
                 <Route exact path="/user" element={<User />} />
@@ -51,7 +51,7 @@ function App() {
             <Routes>
               {console.log(value)}
               <Route exact path="/home" element={<Home />} />
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<LandingPage />} />
                 <Route exact path="/movie_buddy" element={<LandingPage />} />
                 <Route exact path="/watchlist" element={<Watchlist />} />
                 <Route exact path="/user" element={<User />} />
