@@ -1,5 +1,5 @@
 {
-  "homepage": "http://emai2443.github.io/movie_buddy",
+  "homepage": ".",
   "name": "movie_buddy",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +18,7 @@
     "axios": "^0.24.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "express": "^4.18.1",
     "file-loader": "^6.2.0",
     "flickity": "^3.0.0",
     "react": "^17.0.2",

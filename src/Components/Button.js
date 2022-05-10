@@ -1,3 +1,4 @@
+import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 import { Filter } from './Filter';
 
