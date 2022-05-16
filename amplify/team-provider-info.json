@@ -1,28 +1,26 @@
 {
-  "staging": {
+  "backend": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplify691769dc78e64-staging-215631-authRole",
-      "UnauthRoleArn": "arn:aws:iam::752092771872:role/amplify-amplify691769dc78e64-staging-215631-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::752092771872:role/amplify-amplify691769dc78e64-staging-215631-authRole",
+      "AuthRoleName": "amplify-moviebuddy-backend-235525-authRole",
+      "UnauthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-backend-235525-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-backend-235525-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-amplify691769dc78e64-staging-215631-deployment",
-      "UnauthRoleName": "amplify-amplify691769dc78e64-staging-215631-unauthRole",
-      "StackName": "amplify-amplify691769dc78e64-staging-215631",
-      "StackId": "arn:aws:cloudformation:us-east-1:752092771872:stack/amplify-amplify691769dc78e64-staging-215631/0d5f3b60-d0ac-11ec-86c7-0af6f3abfcfb",
-      "AmplifyAppId": "d1pvt0by8ymxpj"
-    }
-  },
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-moviebuddy-dev-200313-authRole",
-      "UnauthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-dev-200313-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::752092771872:role/amplify-moviebuddy-dev-200313-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-moviebuddy-dev-200313-deployment",
-      "UnauthRoleName": "amplify-moviebuddy-dev-200313-unauthRole",
-      "StackName": "amplify-moviebuddy-dev-200313",
-      "StackId": "arn:aws:cloudformation:us-east-1:752092771872:stack/amplify-moviebuddy-dev-200313/6bb63790-cf2b-11ec-8d80-0e49ae328899",
-      "AmplifyAppId": "d13p8xn3hkflno"
+      "DeploymentBucketName": "amplify-moviebuddy-backend-235525-deployment",
+      "UnauthRoleName": "amplify-moviebuddy-backend-235525-unauthRole",
+      "StackName": "amplify-moviebuddy-backend-235525",
+      "StackId": "arn:aws:cloudformation:us-east-1:752092771872:stack/amplify-moviebuddy-backend-235525/7d9c8020-d4aa-11ec-9bc9-0a452403baa7",
+      "AmplifyAppId": "dii1zj0lxadue"
+    },
+    "categories": {
+      "auth": {
+        "moviebuddyf4d86e07": {}
+      },
+      "function": {
+        "moviebuddy409a2b68": {
+          "deploymentBucketName": "amplify-moviebuddy-backend-235525-deployment",
+          "s3Key": "amplify-builds/moviebuddy409a2b68-7a73727635584a684254-build.zip"
+        }
+      }
     }
   }
 }
