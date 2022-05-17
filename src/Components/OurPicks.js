@@ -88,7 +88,7 @@ export const OurPicks = () => {
     <>
     <Account>
     <div className="App">
-      <h1>Watch/Watched List</h1>
+      <h1 className="filterTitle">Watch/Watched List</h1>
     </div>
 
     {/* <button onClick={()=>printdata()}>DATA</button> */}

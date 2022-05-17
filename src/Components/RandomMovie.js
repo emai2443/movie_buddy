@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import AddIcon from '@mui/icons-material/Add';
+import { API } from 'aws-amplify';
+import { createTodo as createNoteMutation} from '../graphql/mutations';
+import { listTodos } from '../graphql/queries';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -100,6 +105,28 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
     genreList = arr.join(', ')
   }
 
+  async function createMovie(id,movieName) {
+    const apiData = await API.graphql({ query: listTodos });
+    let data = apiData.data.listTodos.items
+    var check = false
+
+    data.length > 0 &&
+    data.map((movie) => {
+        if(movie.name === id) {
+          check = true
+        }
+      })
+    
+    if(check === false) {
+      let movieData = {"name": id}
+      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      // setNotes([ ...notes, movieData ]);
+      alert(movieName + " added")
+    } else {
+      alert("Movie already added")
+    }
+  }
+
   return (
     <>
       <div className="randomContainer">
@@ -134,14 +161,17 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
           <div className="watchButton ratingIcon">
             <a onClick={() => myPrint(id)}>
               <button type="button" className="button-5">
-                <i className="fa-solid fa-plus fa-lg"></i>
+                {/* <i className="fa-solid fa-plus fa-lg"></i> */}
+                <AddIcon/>
               </button>
             </a>
           </div>
           <div className="watchButton ratingIcon">
-            <a onClick={() => myPrint()}>
+            <a onClick={() => createMovie(id,title)}>
               <button type="button" className="button-5">
-                <i className="fa-solid fa-eye fa-lg"></i>
+                {/* <i className="fa-solid fa-eye fa-lg"></i> */}
+                
+                <VisibilityIcon/>
               </button>
             </a>
           </div>
