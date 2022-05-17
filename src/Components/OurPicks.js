@@ -53,7 +53,7 @@ export const OurPicks = () => {
   function getMovies(items) {
     items.length > 0 &&
       items.map((movie) => {
-        console.log(movie.name)
+        // console.log(movie.name)
         let getAPI = `https://api.themoviedb.org/3/movie/${movie.name}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
 
         fetch(getAPI)
@@ -65,7 +65,7 @@ export const OurPicks = () => {
       });
     })
 
-    cleanMovies()
+    // cleanMovies()
   }
   let container = []
 
