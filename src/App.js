@@ -23,7 +23,9 @@ import { ViewMore } from "./Components/ViewMore";
 // import awsconfig from './aws-exports';
 // import Amplify, { Auth, API } from 'aws-amplify';
 
-
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
 
 function App() {

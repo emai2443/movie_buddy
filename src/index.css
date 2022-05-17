@@ -668,6 +668,16 @@ button:active {
   color: white;
 }
 
+.userIcon {
+  border-radius: 30%;
+  background: #72757e;
+  padding: 2px;
+  /* width: 2.5rem; */
+  /* width: 200px;
+  height: 150px; */
+}
+
+
 header {
   background-color: #242629;
 }

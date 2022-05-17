@@ -3,6 +3,17 @@ import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { CardMedia } from "@mui/material";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import AddIcon from '@mui/icons-material/Add';
+
+import { API } from 'aws-amplify';
+import { createTodo as createNoteMutation} from '../graphql/mutations';
+import { listTodos } from '../graphql/queries';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -82,6 +93,7 @@ export const Movie = ({
   let actorList = ":(";
   let genreList = ">:(";
 
+
   useEffect(() => (fetchActors(), fetchGenres(), fetchSimilar()), []);
 
   function fetchActors() {
@@ -114,6 +126,30 @@ export const Movie = ({
 
   if (genre) {
     makeGenres();
+  }
+
+  async function createMovie(id,movieName) {
+    const apiData = await API.graphql({ query: listTodos });
+    let data = apiData.data.listTodos.items
+    var check = false
+
+    data.length > 0 &&
+    data.map((movie) => {
+        if(movie.name === id) {
+          check = true
+        }
+      })
+    
+    if(check === false) {
+      let movieData = {"name": id}
+      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      // setNotes([ ...notes, movieData ]);
+      alert(movieName + " added")
+    } else {
+      alert("Movie already added")
+    }
+
+
   }
 
   function makeActors() {
@@ -196,14 +232,16 @@ export const Movie = ({
                 <div className="watchButton ratingIcon">
                   <a onClick={() => myPrint(id)}>
                     <button type="button" className="button-5">
-                      <i className="fa-solid fa-plus fa-lg"></i>
+                      {/* <i className="fa-solid fa-plus fa-lg"></i> */}
+                      <AddIcon/>
                     </button>
                   </a>
                 </div>
                 <div className="watchButton ratingIcon">
-                  <a onClick={() => handleClose()}>
+                  <a onClick={()=>createMovie(id,title)}>
                     <button type="button" className="button-5">
-                      <i className="fa-solid fa-eye fa-lg"></i>
+                      {/* <i className="fa-solid fa-eye fa-lg"></i> */}
+                      <VisibilityIcon/>
                     </button>
                   </a>
                 </div>

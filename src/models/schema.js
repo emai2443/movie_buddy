@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Notes": {
-            "name": "Notes",
+        "Todo": {
+            "name": "Todo",
             "fields": {
                 "id": {
                     "name": "id",
@@ -13,15 +13,8 @@ export const schema = {
                 "name": {
                     "name": "name",
                     "isArray": false,
-                    "type": "String",
+                    "type": "Int",
                     "isRequired": true,
-                    "attributes": []
-                },
-                "description": {
-                    "name": "description",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -42,7 +35,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Notes",
+            "pluralName": "Todos",
             "attributes": [
                 {
                     "type": "model",
@@ -69,5 +62,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "59ec25a41eac7165c7bbb30fd3b0573d"
+    "version": "2307f56553b4c9b999ada8bc215414cf"
 };
