@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Account } from "./Account";
 import Status from "./Status";
+import PersonIcon from '@mui/icons-material/Person';
 
 export const Header = () => {
 
@@ -34,7 +35,8 @@ export const Header = () => {
             </li>
             <li>
               <div className="dropdown">
-                <i className="fa-solid fa-user btn"></i>
+                {/* <i className="fa-solid fa-user btn"></i> */}
+                <div className="userIcon"><PersonIcon fontSize="large"/></div>
                 <div className="dropdown-content">
                   <p className ="settingsCenter"><Link to="/userprofile">Profile</Link></p>
                   <p className ="settingsCenter"><Link to="/user">Settings</Link></p>

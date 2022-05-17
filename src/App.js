@@ -20,17 +20,19 @@ import { UserProfile } from "./Components/UserProfile";
 import { ViewMore } from "./Components/ViewMore";
 
 // import Amplify, { API } from 'aws-amplify';
+// import awsconfig from './aws-exports';
+// import Amplify, { Auth, API } from 'aws-amplify';
+
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import Amplify, { Auth, API } from 'aws-amplify';
-
-
+Amplify.configure(awsconfig);
 
 
 function App() {
   const [value, setValue] = useState(false);
 
-  Amplify.configure(awsconfig);
-  API.configure(awsconfig);
+  // Amplify.configure(awsconfig);
+  // API.configure(awsconfig);
 
   return (
     <userContext.Provider value={{ value, setValue }}>

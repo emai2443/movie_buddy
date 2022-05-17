@@ -29,10 +29,14 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "api7ed8d08c",
-            "endpoint": "https://ylq8fvc8s3.execute-api.us-east-1.amazonaws.com/backend",
+            "endpoint": "https://15h11oxwd2.execute-api.us-east-1.amazonaws.com/backend",
             "region": "us-east-1"
         }
-    ]
+    ],
+    "aws_appsync_graphqlEndpoint": "https://xzw6twh5grgr7gqqrdsxv3bjwe.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "da2-ez53neudurfvlhvwsmci4wriuu"
 };
 
 
