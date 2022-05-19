@@ -20,7 +20,7 @@ export const Search = () => {
       .then((data) => {
         if (!data.errors) {
           setResults(data.results);
-          console.log(data.results);
+          // console.log(data.results);
         } else {
           setResults([]);
         }

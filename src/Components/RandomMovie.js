@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddIcon from '@mui/icons-material/Add';
-import { API } from 'aws-amplify';
-import { createTodo as createNoteMutation} from '../graphql/mutations';
-import { listTodos } from '../graphql/queries';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import StarIcon from '@mui/icons-material/Star';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddIcon from "@mui/icons-material/Add";
+import { API } from "aws-amplify";
+import { createTodo as createNoteMutation } from "../graphql/mutations";
+import { listTodos } from "../graphql/queries";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -45,50 +45,56 @@ const setLanguage = (word) => {
     return "French";
   } else if (word === "th") {
     return "Thai";
-  } 
-  
-  else {
+  } else {
     return word;
   }
 };
 
 const convertDate = (date) => {
-  var now = new Date(date).toUTCString()
-  now = now.slice(5,now.indexOf('00:'))
-  let month = now.slice(3,6)
-  let day = now.slice(0,3)
-  let year = now.slice(7,-1)
-  return month + " " + day + " " + year
-}
-
-const myPrint = (id) => {
-  console.log(id);
+  var now = new Date(date).toUTCString();
+  now = now.slice(5, now.indexOf("00:"));
+  let month = now.slice(3, 6);
+  let day = now.slice(0, 3);
+  let year = now.slice(7, -1);
+  return month + " " + day + " " + year;
 };
 
-export const RandomMovie = ({title, poster_path, overview, vote_average, id, release_date, original_language}) => {
+// const myPrint = (id) => {
+//   console.log(id);
+// };
+
+export const RandomMovie = ({
+  title,
+  poster_path,
+  overview,
+  vote_average,
+  id,
+  release_date,
+  original_language,
+}) => {
   const ACTOR_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
-  const MOVIE_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  const MOVIE_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
   const [actors, setActors] = useState([]);
   const [genre, setGenre] = useState([]);
-  let actorList = ":("; 
+  let actorList = ":(";
   let genreList = ">:(";
 
-  useEffect(() => (
-    fetchActors(),
-    fetchGenres(),
-    checkMovie()), []
-  );
+  useEffect(() => (fetchActors(), fetchGenres(), checkMovie()), []);
 
   function fetchActors() {
-    fetch(ACTOR_API).then((res) => res.json()).then((data) => {
-      setActors(data.cast);
-    })
+    fetch(ACTOR_API)
+      .then((res) => res.json())
+      .then((data) => {
+        setActors(data.cast);
+      });
   }
 
   function fetchGenres() {
-    fetch(MOVIE_API).then((res) => res.json()).then((data)=> {
-      setGenre(data.genres);
-    })
+    fetch(MOVIE_API)
+      .then((res) => res.json())
+      .then((data) => {
+        setGenre(data.genres);
+      });
   }
 
   if (actors) {
@@ -111,18 +117,16 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
     let arr = [];
     genre.forEach((word) => {
       arr.push(word.name);
-    })
-    genreList = arr.join(', ')
+    });
+    genreList = arr.join(", ");
   }
-
-
 
   const [openSnack, setOpenSnack] = React.useState(false);
   const handleClickSnack = () => {
     setOpenSnack(true);
   };
   const handleCloseSnack = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpenSnack(false);
@@ -133,72 +137,78 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
     setOpenSnack2(true);
   };
   const handleCloseSnack2 = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpenSnack2(false);
   };
   const [movieCheck, setMovieCheck] = useState(false);
 
-  async function createMovie(id,movieName) {
+  async function createMovie(id, movieName) {
     const apiData = await API.graphql({ query: listTodos });
-    let data = apiData.data.listTodos.items
-    var check = false
+    let data = apiData.data.listTodos.items;
+    var check = false;
 
     data.length > 0 &&
-    data.map((movie) => {
-        if(movie.name === id) {
-          check = true
+      data.map((movie) => {
+        if (movie.name === id) {
+          check = true;
         }
-      })
-    
-    if(check === false) {
-      let movieData = {"name": id}
-      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      });
+
+    if (check === false) {
+      let movieData = { name: id };
+      await API.graphql({
+        query: createNoteMutation,
+        variables: { input: movieData },
+      });
       // setNotes([ ...notes, movieData ]);
-      alert(movieName + " added")
+      alert(movieName + " added");
     } else {
-      alert("Movie already added")
+      alert("Movie already added");
     }
   }
 
-  async function createMovie(id,movieName) {
+  async function createMovie(id, movieName) {
     const apiData = await API.graphql({ query: listTodos });
-    let data = apiData.data.listTodos.items
-  
-    var check = false
+    let data = apiData.data.listTodos.items;
+
+    var check = false;
 
     data.length > 0 &&
-    data.map((movie) => {
-        if(movie.name === id) {
-          check = true
+      data.map((movie) => {
+        if (movie.name === id) {
+          check = true;
         }
-      })
-    
-    if(check === false) {
-      let movieData = {"name": id}
+      });
+
+    if (check === false) {
+      let movieData = { name: id };
       // let movieData = {"user": "ulu@gmail.com", "movieId": id}
-      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      await API.graphql({
+        query: createNoteMutation,
+        variables: { input: movieData },
+      });
       // console.log(movieData)
       // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // setNotes([ ...notes, movieData ]);
       // console.log(movieData)
-      setMovieCheck(true)
-      handleClickSnack()
+      setMovieCheck(true);
+      handleClickSnack();
     } else {
-      handleClickSnack2()
+      handleClickSnack2();
     }
   }
   async function checkMovie() {
     const apiData = await API.graphql({ query: listTodos });
-    let movieData = apiData.data.listTodos.items
+    let movieData = apiData.data.listTodos.items;
 
     movieData.length > 0 &&
-    movieData.map((movie) => {
-        if(movie.name === id) {
-          setMovieCheck(true)
+      movieData.map((movie) => {
+        if (movie.name === id) {
+          setMovieCheck(true);
         }
-      })
+      });
     // if(movieCheck) {
     //   console.log('exists')
     // }
@@ -234,29 +244,41 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
           <p>Overview: {overview}</p>
         </div>
         <div className="randomRating">
-                <div className="watchButton ratingIcon">
-                  <a onClick={()=>createMovie(id,title)}>
-                    <button type="button" className="button-5">
-                      {movieCheck ? (
-                        <StarIcon/>
-                      ) : (
-                        <StarBorderIcon/>
-                      )}
-                    </button>
-                  </a>
-                </div>
-              </div>
+          <div className="watchButton ratingIcon">
+            <a onClick={() => createMovie(id, title)}>
+              <button type="button" className="button-5">
+                {movieCheck ? <StarIcon /> : <StarBorderIcon />}
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
-    <Snackbar open={openSnack} autoHideDuration={4000} onClose={handleCloseSnack}>
-      <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%'}}>
-        {title} added!
-      </Alert>
-    </Snackbar>
-    <Snackbar open={openSnack2} autoHideDuration={4000} onClose={handleCloseSnack2}>
-      <Alert onClose={handleCloseSnack2} severity="info" sx={{ width: '100%'}}>
-        {title} is already added!
-      </Alert>
-    </Snackbar>
+      <Snackbar
+        open={openSnack}
+        autoHideDuration={4000}
+        onClose={handleCloseSnack}
+      >
+        <Alert
+          onClose={handleCloseSnack}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          {title} added!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={openSnack2}
+        autoHideDuration={4000}
+        onClose={handleCloseSnack2}
+      >
+        <Alert
+          onClose={handleCloseSnack2}
+          severity="info"
+          sx={{ width: "100%" }}
+        >
+          {title} is already added!
+        </Alert>
+      </Snackbar>
     </>
   );
 };

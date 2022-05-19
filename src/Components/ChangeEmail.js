@@ -21,7 +21,7 @@ export default () => {
           if (err) {
             console.error(err);
           } else {
-            console.log(results);
+            // console.log(results);
             alert(
               "You Email has been changed successfully, please logout and sign in again"
             );
@@ -35,16 +35,20 @@ export default () => {
     <div className="settingsEmail">
       <form onSubmit={onSubmit}>
         <div className="settingsItem">
-          <label>New Email</label><br/>
+          <label>New Email</label>
+          <br />
           <input
             value={newEmail}
-            onChange={(event) => setNewEmail(event.target.value)}/>
+            onChange={(event) => setNewEmail(event.target.value)}
+          />
         </div>
         <div className="settingsItem">
-          <label>Current Password</label><br/>
+          <label>Current Password</label>
+          <br />
           <input
             value={password}
-            onChange={(event) => setPassword(event.target.value)}/>
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </div>
         <div className="settingsItem">
           <button type="submit">Change Email</button>

@@ -3,17 +3,17 @@ import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { CardMedia } from "@mui/material";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddIcon from '@mui/icons-material/Add';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddIcon from "@mui/icons-material/Add";
 
-import { API } from 'aws-amplify';
-import { createTodo as createNoteMutation} from '../graphql/mutations';
-import { listTodos } from '../graphql/queries';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
+import { API } from "aws-amplify";
+import { createTodo as createNoteMutation } from "../graphql/mutations";
+import { listTodos } from "../graphql/queries";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -69,9 +69,9 @@ const convertDate = (date) => {
   return month + " " + day + " " + year;
 };
 
-const myPrint = (id) => {
-  console.log(id);
-};
+// const myPrint = (id) => {
+//   console.log(id);
+// };
 export const Favorites = ({
   title,
   poster_path,
@@ -129,30 +129,33 @@ export const Favorites = ({
     makeGenres();
   }
 
-  async function createMovie(id,movieName) {
+  async function createMovie(id, movieName) {
     const apiData = await API.graphql({ query: listTodos });
-    let data = apiData.data.listTodos.items
-  
-    var check = false
+    let data = apiData.data.listTodos.items;
+
+    var check = false;
 
     data.length > 0 &&
-    data.map((movie) => {
-        if(movie.name === id) {
-          check = true
+      data.map((movie) => {
+        if (movie.name === id) {
+          check = true;
         }
-      })
-    
-    if(check === false) {
-      let movieData = {"name": id}
+      });
+
+    if (check === false) {
+      let movieData = { name: id };
       // let movieData = {"user": "ulu@gmail.com", "movieId": id}
-      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      await API.graphql({
+        query: createNoteMutation,
+        variables: { input: movieData },
+      });
       // console.log(movieData)
       // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // setNotes([ ...notes, movieData ]);
       // console.log(movieData)
-      alert(movieName + " added")
+      alert(movieName + " added");
     } else {
-      alert("Movie already added")
+      alert("Movie already added");
     }
   }
 

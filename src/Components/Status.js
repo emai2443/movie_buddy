@@ -10,7 +10,7 @@ const Status = () => {
 
   useEffect(() => {
     getSession().then((session) => {
-      console.log("Session: ", session);
+      // console.log("Session: ", session);
       setStatus(true);
     });
     // console.log(value)
@@ -33,7 +33,7 @@ const Status = () => {
           </div>
         ) : (
           // <h3>Please Login</h3>
-          console.log("h")
+          void 0
         )}
       </div>
     </AccountContext.Provider>

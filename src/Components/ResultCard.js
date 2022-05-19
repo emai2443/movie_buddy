@@ -12,11 +12,11 @@ const setVoteClass = (vote) => {
   }
 };
 
-const myPrint = (id) => {
-  console.log(id)
-};
+// const myPrint = (id) => {
+//   console.log(id)
+// };
 
-export const ResultCard = ({ movie}) => {
+export const ResultCard = ({ movie }) => {
   const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
   let storedMovie = watchlist.find((o) => o.id === movie.id);
   const watchlistDisabled = storedMovie ? true : false;
@@ -51,7 +51,6 @@ export const ResultCard = ({ movie}) => {
               type="button"
               className="button-5"
               disabled={watchlistDisabled}
-              onClick={() => {myPrint(movie.id)}}
             >
               <i className="fa-solid fa-plus fa-lg"></i>
             </button>

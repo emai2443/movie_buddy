@@ -4,9 +4,6 @@ import { Account } from "./Account";
 import Status from "./Status";
 
 export const Random = () => {
-
-
-
   const [movies, setMovies] = useState([]);
 
   let page = Math.floor(Math.random() * 10 + 1);
@@ -22,15 +19,7 @@ export const Random = () => {
     page = Math.floor(Math.random() * 10 + 1);
     num1 = Math.floor(Math.random() * 19 + 1);
 
-    if (page === 9 && num1 === 10) {
-      reroll();
-      console.log("worked1");
-    } else if (page === 8 && num1 === 9) {
-      reroll();
-      console.log("worked2");
-    } else {
-      getMovies(TEST_API);
-    }
+    getMovies(TEST_API);
   };
 
   const getMovies = (url) => {
@@ -40,8 +29,6 @@ export const Random = () => {
         setMovies(data.results);
       });
   };
-
-
 
   return (
     <>

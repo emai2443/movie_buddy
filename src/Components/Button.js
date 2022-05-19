@@ -1,64 +1,63 @@
-import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
-import React from 'react';
-import { Filter } from './Filter';
+import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
+import React from "react";
+import { Filter } from "./Filter";
 
 const BASE_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}&vote_average.gte=7&vote_average.lte=10`;
 var TEST_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_TMDB_KEY}&vote_average.gte=7&vote_average.lte=10`;
-var selectedGenre = []
-
+var selectedGenre = [];
 
 const buttonFunction = (e) => {
-    //console.log(e.target.id);
-    if(selectedGenre.length == 0) {
-        selectedGenre.push(e.target.id);
-    } else {
-        if(selectedGenre.includes(e.target.id)){
-            selectedGenre.forEach((id, idx) => {
-                if(id == e.target.id) {
-                selectedGenre.splice(idx, 1);
-            }
-        })
-        } else {
-        selectedGenre.push(e.target.id);
+  //console.log(e.target.id);
+  if (selectedGenre.length == 0) {
+    selectedGenre.push(e.target.id);
+  } else {
+    if (selectedGenre.includes(e.target.id)) {
+      selectedGenre.forEach((id, idx) => {
+        if (id == e.target.id) {
+          selectedGenre.splice(idx, 1);
         }
+      });
+    } else {
+      selectedGenre.push(e.target.id);
     }
-    
-    TEST_API += '&with_genres=' + encodeURI(selectedGenre.join(','));
-    console.log(selectedGenre)
-    hightlightButton()
-    
-}
+  }
+
+  TEST_API += "&with_genres=" + encodeURI(selectedGenre.join(","));
+  // console.log(selectedGenre)
+  hightlightButton();
+};
 
 function clearBtn() {
-    selectedGenre = [];
-    TEST_API = BASE_API;
-    const tags = document.querySelectorAll('.genreButton');
-    tags.forEach(tag => {
-        tag.classList.remove('highlight');
-    })
+  selectedGenre = [];
+  TEST_API = BASE_API;
+  const tags = document.querySelectorAll(".genreButton");
+  tags.forEach((tag) => {
+    tag.classList.remove("highlight");
+  });
 }
 
 function hightlightButton() {
-    const tags = document.querySelectorAll('.genreButton');
-    tags.forEach(tag => {
-        tag.classList.remove('highlight');
-    })
-    if(selectedGenre !== 0) {
-        selectedGenre.forEach(id=> {
-            const highlightedTag = document.getElementById(id);
-            highlightedTag.classList.add('highlight');
-        })
-    }
+  const tags = document.querySelectorAll(".genreButton");
+  tags.forEach((tag) => {
+    tag.classList.remove("highlight");
+  });
+  if (selectedGenre !== 0) {
+    selectedGenre.forEach((id) => {
+      const highlightedTag = document.getElementById(id);
+      highlightedTag.classList.add("highlight");
+    });
+  }
 }
 
-
-const Bttn = ({id,name}) => {
-    return(
-        <div className="buttonDiv">
-            <button id={id} onClick={buttonFunction} className='genreButton'>{name}</button>
-        </div>
-    );
-}
+const Bttn = ({ id, name }) => {
+  return (
+    <div className="buttonDiv">
+      <button id={id} onClick={buttonFunction} className="genreButton">
+        {name}
+      </button>
+    </div>
+  );
+};
 
 export default Bttn;
-export {TEST_API, clearBtn, selectedGenre};
+export { TEST_API, clearBtn, selectedGenre };

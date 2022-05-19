@@ -15,7 +15,7 @@ export default () => {
         if (err) {
           console.error(err);
         } else {
-          console.log(result);
+          // console.log(result);
           alert(
             "Your password has been changed successfully. Please log out and sign in again"
           );
@@ -28,16 +28,20 @@ export default () => {
     <div className="settingsPassword">
       <form onSubmit={onSubmit}>
         <div className="settingsItem">
-          <label>Current password</label><br/>
+          <label>Current password</label>
+          <br />
           <input
             value={password}
-            onChange={(event) => setPassword(event.target.value)}/>
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </div>
         <div className="settingsItem">
-          <label>New password</label><br/>
+          <label>New password</label>
+          <br />
           <input
             value={newPassword}
-            onChange={(event) => setNewPassword(event.target.value)}/>
+            onChange={(event) => setNewPassword(event.target.value)}
+          />
         </div>
         <div className="settingsItem">
           <button type="submit">Change password</button>

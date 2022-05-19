@@ -24,9 +24,9 @@ const Login = () => {
     event.preventDefault();
 
     authenticate(email, password)
-      .then((data) => {
-        console.log("Logged in!", data);
-      })
+      // .then((data) => {
+      //   console.log("");
+      // })
       .then(logIn)
       .catch((err) => {
         console.error("Failed to login", err);
@@ -115,7 +115,7 @@ const Login = () => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus 
+              autoFocus
               variant="filled"
               style={{ backgroundColor: "white", borderRadius: 5 }}
               onChange={(event) => setEmail(event.target.value)}

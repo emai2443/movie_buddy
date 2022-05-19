@@ -23,10 +23,9 @@ import { ViewMore } from "./Components/ViewMore";
 // import awsconfig from './aws-exports';
 // import Amplify, { Auth, API } from 'aws-amplify';
 
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import Amplify, { API, graphqlOperation } from "aws-amplify";
+import awsconfig from "./aws-exports";
 Amplify.configure(awsconfig);
-
 
 function App() {
   const [value, setValue] = useState(false);
@@ -42,7 +41,7 @@ function App() {
             <>
               <Header />
               <Routes>
-                {console.log(value)}
+                {/* {console.log(value)} */}
                 <Route exact path="/home" element={<Home />} />
                 <Route exact path="/" element={<LandingPage />} />
                 <Route exact path="/movie_buddy" element={<LandingPage />} />
@@ -62,22 +61,22 @@ function App() {
             </>
           ) : (
             <Routes>
-              {console.log(value)}
+              {/* {console.log(value)} */}
               <Route exact path="/home" element={<Home />} />
-                <Route exact path="/" element={<LandingPage />} />
-                <Route exact path="/movie_buddy" element={<LandingPage />} />
-                <Route exact path="/watchlist" element={<Watchlist />} />
-                <Route exact path="/user" element={<User />} />
-                <Route exact path="/favorites" element={<FavoritePage />} />
-                <Route exact path="/random" element={<Random />} />
-                <Route exact path="/filter" element={<Filter />} />
-                <Route exact path="/ourpick" element={<OurPicks />} />
-                <Route exact path="/search" element={<Search />} />
-                <Route exact path="/register" element={<Register />} />
-                <Route exact path="/signin" element={<Signin />} />
-                <Route exact path="/landing" element={<LandingPage />} />
-                <Route exact path="/viewmore" element={<ViewMore />} />
-                <Route exact path="/userprofile" element={<UserProfile />} />
+              <Route exact path="/" element={<LandingPage />} />
+              <Route exact path="/movie_buddy" element={<LandingPage />} />
+              <Route exact path="/watchlist" element={<Watchlist />} />
+              <Route exact path="/user" element={<User />} />
+              <Route exact path="/favorites" element={<FavoritePage />} />
+              <Route exact path="/random" element={<Random />} />
+              <Route exact path="/filter" element={<Filter />} />
+              <Route exact path="/ourpick" element={<OurPicks />} />
+              <Route exact path="/search" element={<Search />} />
+              <Route exact path="/register" element={<Register />} />
+              <Route exact path="/signin" element={<Signin />} />
+              <Route exact path="/landing" element={<LandingPage />} />
+              <Route exact path="/viewmore" element={<ViewMore />} />
+              <Route exact path="/userprofile" element={<UserProfile />} />
             </Routes>
           )}
         </Router>

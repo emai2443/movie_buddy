@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { CardMedia } from "@mui/material";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddIcon from '@mui/icons-material/Add';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddIcon from "@mui/icons-material/Add";
 
-import { API } from 'aws-amplify';
-import { createTodo as createNoteMutation} from '../graphql/mutations';
-import { listTodos } from '../graphql/queries';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import StarIcon from '@mui/icons-material/Star';
+import { API } from "aws-amplify";
+import { createTodo as createNoteMutation } from "../graphql/mutations";
+import { listTodos } from "../graphql/queries";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -75,9 +75,9 @@ const convertDate = (date) => {
   return month + " " + day + " " + year;
 };
 
-const myPrint = (id) => {
-  console.log(id);
-};
+// const myPrint = (id) => {
+//   console.log(id);
+// };
 export const Movie = ({
   title,
   poster_path,
@@ -94,15 +94,13 @@ export const Movie = ({
   const [genre, setGenre] = useState([]);
   const [similar, setSimilar] = useState([]);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {setOpen(true);checkMovie()};
+  const handleOpen = () => {
+    setOpen(true);
+    checkMovie();
+  };
   const handleClose = () => setOpen(false);
   let actorList = ":(";
   let genreList = ">:(";
-
-
-
-
-
 
   // const [formData, setFormData] = useState(initialFormState);
 
@@ -121,7 +119,7 @@ export const Movie = ({
     setOpenSnack(true);
   };
   const handleCloseSnack = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpenSnack(false);
@@ -132,25 +130,24 @@ export const Movie = ({
     setOpenSnack2(true);
   };
   const handleCloseSnack2 = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpenSnack2(false);
   };
 
-
   const [movieCheck, setMovieCheck] = useState(false);
 
   async function checkMovie() {
     const apiData = await API.graphql({ query: listTodos });
-    let movieData = apiData.data.listTodos.items
+    let movieData = apiData.data.listTodos.items;
 
     movieData.length > 0 &&
-    movieData.map((movie) => {
-        if(movie.name === id) {
-          setMovieCheck(true)
+      movieData.map((movie) => {
+        if (movie.name === id) {
+          setMovieCheck(true);
         }
-      })
+      });
     // if(movieCheck) {
     //   console.log('exists')
     // }
@@ -180,31 +177,34 @@ export const Movie = ({
     makeGenres();
   }
 
-  async function createMovie(id,movieName) {
+  async function createMovie(id, movieName) {
     const apiData = await API.graphql({ query: listTodos });
-    let data = apiData.data.listTodos.items
-  
-    var check = false
+    let data = apiData.data.listTodos.items;
+
+    var check = false;
 
     data.length > 0 &&
-    data.map((movie) => {
-        if(movie.name === id) {
-          check = true
+      data.map((movie) => {
+        if (movie.name === id) {
+          check = true;
         }
-      })
-    
-    if(check === false) {
-      let movieData = {"name": id}
+      });
+
+    if (check === false) {
+      let movieData = { name: id };
       // let movieData = {"user": "ulu@gmail.com", "movieId": id}
-      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      await API.graphql({
+        query: createNoteMutation,
+        variables: { input: movieData },
+      });
       // console.log(movieData)
       // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // setNotes([ ...notes, movieData ]);
       // console.log(movieData)
-      setMovieCheck(true)
-      handleClickSnack()
+      setMovieCheck(true);
+      handleClickSnack();
     } else {
-      handleClickSnack2()
+      handleClickSnack2();
     }
   }
 
@@ -226,93 +226,105 @@ export const Movie = ({
 
   return (
     <>
-    <div className="movie">
-      <div className="movie-header">
-        <img
-          src={
-            poster_path
-              ? IMG_API + poster_path
-              : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-          }
-          alt={title}
-          onClick={handleOpen}
-        />
-        <div className="movie-info">
-          <h3>{title}</h3>
-          <span className={`tag ${setVoteClass(vote_average)}`}>
-            {vote_average}
-          </span>
+      <div className="movie">
+        <div className="movie-header">
+          <img
+            src={
+              poster_path
+                ? IMG_API + poster_path
+                : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            }
+            alt={title}
+            onClick={handleOpen}
+          />
+          <div className="movie-info">
+            <h3>{title}</h3>
+            <span className={`tag ${setVoteClass(vote_average)}`}>
+              {vote_average}
+            </span>
+          </div>
         </div>
-      </div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div id={id}>
-            <div className="modal-content">
-              <div className="randomImage">
-                <CardMedia
-                  style={{
-                    width: "300px",
-                    height: "480px",
-                  }}
-                  component="img"
-                  image={
-                    poster_path
-                      ? IMG_API + poster_path
-                      : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                  }
-                  title={title}
-                />
-              </div>
-              <div className="randomInfo">
-                <div className="flex margin">
-                  <div className="randomTitle">
-                    <h2>{title}</h2>
-                  </div>
-                  <div className="randomTitle">
-                    <span className={`tag ${setVoteClass(vote_average)}`}>
-                      {vote_average}
-                    </span>
-                  </div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div id={id}>
+              <div className="modal-content">
+                <div className="randomImage">
+                  <CardMedia
+                    style={{
+                      width: "300px",
+                      height: "480px",
+                    }}
+                    component="img"
+                    image={
+                      poster_path
+                        ? IMG_API + poster_path
+                        : "https://images.unsplash.com/photo-1620177088258-c84147ee601f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1vdmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    }
+                    title={title}
+                  />
                 </div>
-                <p>Release date: {convertDate(release_date)}</p>
-                <p>Language: {setLanguage(original_language)}</p>
-                <p>Genres: {genreList}</p>
-                <p>Actors: {actorList}</p>
-                <p>Overview: {overview}</p>
-              </div>
-              <div className="randomRating">
-                <div className="watchButton ratingIcon">
-                  <a onClick={()=>createMovie(id,title)}>
-                    <button type="button" className="button-5">
-                      {movieCheck ? (
-                        <StarIcon/>
-                      ) : (
-                        <StarBorderIcon/>
-                      )}
-                    </button>
-                  </a>
+                <div className="randomInfo">
+                  <div className="flex margin">
+                    <div className="randomTitle">
+                      <h2>{title}</h2>
+                    </div>
+                    <div className="randomTitle">
+                      <span className={`tag ${setVoteClass(vote_average)}`}>
+                        {vote_average}
+                      </span>
+                    </div>
+                  </div>
+                  <p>Release date: {convertDate(release_date)}</p>
+                  <p>Language: {setLanguage(original_language)}</p>
+                  <p>Genres: {genreList}</p>
+                  <p>Actors: {actorList}</p>
+                  <p>Overview: {overview}</p>
+                </div>
+                <div className="randomRating">
+                  <div className="watchButton ratingIcon">
+                    <a onClick={() => createMovie(id, title)}>
+                      <button type="button" className="button-5">
+                        {movieCheck ? <StarIcon /> : <StarBorderIcon />}
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Box>
-      </Modal>
-    </div>
-    <Snackbar open={openSnack} autoHideDuration={4000} onClose={handleCloseSnack}>
-      <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%'}}>
-        {title} added!
-      </Alert>
-    </Snackbar>
-    <Snackbar open={openSnack2} autoHideDuration={4000} onClose={handleCloseSnack2}>
-      <Alert onClose={handleCloseSnack2} severity="info" sx={{ width: '100%'}}>
-        {title} is already added!
-      </Alert>
-    </Snackbar>
+          </Box>
+        </Modal>
+      </div>
+      <Snackbar
+        open={openSnack}
+        autoHideDuration={4000}
+        onClose={handleCloseSnack}
+      >
+        <Alert
+          onClose={handleCloseSnack}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          {title} added!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={openSnack2}
+        autoHideDuration={4000}
+        onClose={handleCloseSnack2}
+      >
+        <Alert
+          onClose={handleCloseSnack2}
+          severity="info"
+          sx={{ width: "100%" }}
+        >
+          {title} is already added!
+        </Alert>
+      </Snackbar>
     </>
   );
 };

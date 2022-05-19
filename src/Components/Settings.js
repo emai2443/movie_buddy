@@ -5,7 +5,7 @@ import ChangePassword from "./ChangePassword";
 import ChangeEmail from "./ChangeEmail";
 
 export default () => {
-  const { getSession,logout } = useContext(AccountContext);
+  const { getSession, logout } = useContext(AccountContext);
 
   const [loggedin, setLoggedIn] = useState(false);
   const { value, setValue } = useContext(userContext);
@@ -19,21 +19,23 @@ export default () => {
   const biggerFunc = () => {
     logout();
     setValue(false);
-    console.log('logged out')
+    // console.log('logged out')
   };
 
   return (
-    <div className="settingsStyle" >
+    <div className="settingsStyle">
       {loggedin && (
         <>
-          <h2><i class="fa-solid fa-gear"></i> Settings</h2>
+          <h2>
+            <i class="fa-solid fa-gear"></i> Settings
+          </h2>
           <h3>Change Password</h3>
           <ChangePassword />
           <h4>Change Email</h4>
           <ChangeEmail />
-            <button onClick={biggerFunc} className="applyButton2">
-              Logout
-            </button>
+          <button onClick={biggerFunc} className="applyButton2">
+            Logout
+          </button>
         </>
       )}
     </div>
