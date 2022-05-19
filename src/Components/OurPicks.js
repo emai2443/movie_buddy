@@ -6,6 +6,8 @@ import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Movie } from "./Movie";
+import {Account} from "./Account";
+import Status from "./Status";
 
 export const OurPicks = () => {
   let ulu = [634649 ,299536 ,414906 ,810693 ,317442 ,293660 ,324857 ,1726 ,584 ,9502 ,207703 ,607 ,284054 ,585 ,339403 ,862 ,100402 ,557 ,157336 ,118406]
@@ -58,6 +60,8 @@ export const OurPicks = () => {
 
   return (
     <>
+    <Account>
+      <Status/>
     <div className="filterTitle">
       
     <h1>Our Picks</h1>
@@ -94,6 +98,7 @@ export const OurPicks = () => {
               </>
             ))}
     </div>
+    </Account>
     </>
   );
 };
