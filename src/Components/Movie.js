@@ -89,7 +89,7 @@ export const Movie = ({
   const [genre, setGenre] = useState([]);
   const [similar, setSimilar] = useState([]);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {setOpen(true);checkMovie()};
   const handleClose = () => setOpen(false);
   let actorList = ":(";
   let genreList = ">:(";
@@ -107,8 +107,19 @@ export const Movie = ({
   }
 
   let movieCheck = false
-  function checkMovie() {
-    
+  async function checkMovie() {
+    const apiData = await API.graphql({ query: listTodos });
+    let movieData = apiData.data.listTodos.items
+
+    movieData.length > 0 &&
+    movieData.map((movie) => {
+        if(movie.name === id) {
+          movieCheck = true
+        }
+      })
+    if(movieCheck) {
+      console.log('exists')
+    }
   }
 
   function fetchGenres() {
@@ -151,7 +162,7 @@ export const Movie = ({
     if(check === false) {
       let movieData = {"name": id}
       // let movieData = {"user": "ulu@gmail.com", "movieId": id}
-      // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // console.log(movieData)
       // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // setNotes([ ...notes, movieData ]);
