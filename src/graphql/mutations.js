@@ -27,6 +27,20 @@ export const updateTodo = /* GraphQL */ `
     }
   }
 `;
+// export const deleteTodo = /* GraphQL */ `
+//   mutation DeleteTodo(
+//     $input: DeleteTodoInput!
+//     $condition: ModelTodoConditionInput
+//   ) {
+//     deleteTodo(input: $input, condition: $condition) {
+//       id
+//       name
+//       createdAt
+//       updatedAt
+//     }
+//   }
+// `;
+
 export const deleteTodo = /* GraphQL */ `
   mutation DeleteTodo(
     $input: DeleteTodoInput!

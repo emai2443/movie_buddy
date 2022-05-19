@@ -34,11 +34,11 @@ export const ViewMore = () => {
   }
   function setTitle() {
     if (number === 1) {
-      return "Popular";
+      return "Popular Movies";
     } else if (number === 2) {
-      return "Now Playing";
+      return "Now Playing Movies";
     } else if (number === 3) {
-      return "Top Rated";
+      return "Top Rated Movies";
     }
   }
 
@@ -48,8 +48,8 @@ export const ViewMore = () => {
     getMovies(API);
   }, []);
 
-  const getMovies = (ape) => {
-    fetch(ape)
+  const getMovies = (apei) => {
+    fetch(apei)
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
@@ -72,6 +72,7 @@ export const ViewMore = () => {
                   backgroundColor: "#ffffff", 
                   borderColor: 'transparent',
                   borderRadius: "5px",
+                  padding: "5px 20px 5px 20px",
               }}
           />
         </div>

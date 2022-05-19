@@ -1,15 +1,13 @@
 {
   "auth": {
-    "moviebuddyf4d86e07": {
+    "moviebuddy5d9ed506": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "signupAttributes": [
           "EMAIL"
         ],
@@ -35,20 +33,6 @@
     }
   },
   "api": {
-    "api7ed8d08c": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "moviebuddy409a2b68",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    },
     "moviebuddy": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",

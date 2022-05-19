@@ -12,14 +12,18 @@
       "AmplifyAppId": "dii1zj0lxadue"
     },
     "categories": {
-      "auth": {
-        "moviebuddyf4d86e07": {}
-      },
       "function": {
         "moviebuddy409a2b68": {
           "deploymentBucketName": "amplify-moviebuddy-backend-235525-deployment",
           "s3Key": "amplify-builds/moviebuddy409a2b68-7a73727635584a684254-build.zip"
+        },
+        "movieAPIfunction": {
+          "deploymentBucketName": "amplify-moviebuddy-backend-235525-deployment",
+          "s3Key": "amplify-builds/movieAPIfunction-4b59702f6d6f6a507052-build.zip"
         }
+      },
+      "auth": {
+        "moviebuddy5d9ed506": {}
       }
     }
   }

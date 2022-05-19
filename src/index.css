@@ -408,6 +408,8 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  font-size: large;
 }
 
 .landingButtons {

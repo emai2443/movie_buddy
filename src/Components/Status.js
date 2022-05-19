@@ -13,6 +13,7 @@ const Status = () => {
       console.log("Session: ", session);
       setStatus(true);
     });
+    // console.log(value)
   }, []);
 
   const biggerFunc = () => {

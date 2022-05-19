@@ -14,7 +14,6 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -73,7 +72,7 @@ const convertDate = (date) => {
 const myPrint = (id) => {
   console.log(id);
 };
-export const Movie = ({
+export const Favorites = ({
   title,
   poster_path,
   overview,
@@ -104,11 +103,6 @@ export const Movie = ({
       .then((data) => {
         setActors(data.cast);
       });
-  }
-
-  let movieCheck = false
-  function checkMovie() {
-    
   }
 
   function fetchGenres() {
@@ -151,16 +145,14 @@ export const Movie = ({
     if(check === false) {
       let movieData = {"name": id}
       // let movieData = {"user": "ulu@gmail.com", "movieId": id}
-      // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // console.log(movieData)
       // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
       // setNotes([ ...notes, movieData ]);
       // console.log(movieData)
-      console.log(id)
       alert(movieName + " added")
     } else {
       alert("Movie already added")
-      console.log(id)
     }
   }
 
@@ -239,22 +231,6 @@ export const Movie = ({
                 <p>Genres: {genreList}</p>
                 <p>Actors: {actorList}</p>
                 <p>Overview: {overview}</p>
-              </div>
-              <div className="randomRating">
-                {/* <div className="watchButton ratingIcon">
-                  <a onClick={() => myPrint(id)}>
-                    <button type="button" className="button-5">
-                      <AddIcon/>
-                    </button>
-                  </a>
-                </div> */}
-                <div className="watchButton ratingIcon">
-                  <a onClick={()=>createMovie(id,title)}>
-                    <button type="button" className="button-5">
-                      <StarBorderIcon/>
-                    </button>
-                  </a>
-                </div>
               </div>
             </div>
           </div>

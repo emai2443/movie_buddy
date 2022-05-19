@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "moviebuddy",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2022-05-18T03:07:37.175Z"
 }

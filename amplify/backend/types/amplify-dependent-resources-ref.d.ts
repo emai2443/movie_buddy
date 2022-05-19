@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "moviebuddyf4d86e07": {
+        "moviebuddy5d9ed506": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -19,11 +19,6 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "api7ed8d08c": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
-        },
         "moviebuddy": {
             "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",

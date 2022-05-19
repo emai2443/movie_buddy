@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from "./Components/Header";
 import { Watchlist } from "./Components/Watchlist";
-import { Watched } from "./Components/Watched";
+import { FavoritePage } from "./Components/FavoritePage";
 import { User } from "./Components/User";
 import { Home } from "./Components/Home";
 import { Random } from "./Components/Random";
@@ -48,7 +48,7 @@ function App() {
                 <Route exact path="/movie_buddy" element={<LandingPage />} />
                 <Route exact path="/watchlist" element={<Watchlist />} />
                 <Route exact path="/user" element={<User />} />
-                <Route exact path="/watched" element={<Watched />} />
+                <Route exact path="/favorites" element={<FavoritePage />} />
                 <Route exact path="/random" element={<Random />} />
                 <Route exact path="/filter" element={<Filter />} />
                 <Route exact path="/ourpick" element={<OurPicks />} />
@@ -68,7 +68,7 @@ function App() {
                 <Route exact path="/movie_buddy" element={<LandingPage />} />
                 <Route exact path="/watchlist" element={<Watchlist />} />
                 <Route exact path="/user" element={<User />} />
-                <Route exact path="/watched" element={<Watched />} />
+                <Route exact path="/favorites" element={<FavoritePage />} />
                 <Route exact path="/random" element={<Random />} />
                 <Route exact path="/filter" element={<Filter />} />
                 <Route exact path="/ourpick" element={<OurPicks />} />
