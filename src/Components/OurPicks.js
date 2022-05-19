@@ -67,18 +67,21 @@ export const OurPicks = () => {
         exclusive
         onChange={handleAlignment}
         aria-label="text alignment"
+        color="primary"
         sx={{
           backgroundColor: "#ffffff",
           color: 'success.main',
+          margin: '0px 10px 20px 10px'
+          
         }}
       >
-        <ToggleButton value="left" aria-label="left aligned">
+        <ToggleButton value="left" aria-label="left aligned" style={{padding: '10px 20px 10px 20px', fontSize: '1.1rem'}}>
           Richard
         </ToggleButton>
-        <ToggleButton value="center" aria-label="centered">
+        <ToggleButton value="center" aria-label="centered" style={{padding: '10px 20px 10px 20px', fontSize: '1.1rem'}}>
           Eric
         </ToggleButton>
-        <ToggleButton value="right" aria-label="right aligned">
+        <ToggleButton value="right" aria-label="right aligned" style={{padding: '10px 20px 10px 20px', fontSize: '1.1rem'}}>
           Ulukbek
         </ToggleButton>
       </ToggleButtonGroup>
