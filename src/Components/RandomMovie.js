@@ -4,6 +4,15 @@ import AddIcon from '@mui/icons-material/Add';
 import { API } from 'aws-amplify';
 import { createTodo as createNoteMutation} from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
+
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -66,7 +75,8 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
 
   useEffect(() => (
     fetchActors(),
-    fetchGenres()), []
+    fetchGenres(),
+    checkMovie()), []
   );
 
   function fetchActors() {
@@ -105,6 +115,31 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
     genreList = arr.join(', ')
   }
 
+
+
+  const [openSnack, setOpenSnack] = React.useState(false);
+  const handleClickSnack = () => {
+    setOpenSnack(true);
+  };
+  const handleCloseSnack = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnack(false);
+  };
+
+  const [openSnack2, setOpenSnack2] = React.useState(false);
+  const handleClickSnack2 = () => {
+    setOpenSnack2(true);
+  };
+  const handleCloseSnack2 = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnack2(false);
+  };
+  const [movieCheck, setMovieCheck] = useState(false);
+
   async function createMovie(id,movieName) {
     const apiData = await API.graphql({ query: listTodos });
     let data = apiData.data.listTodos.items
@@ -127,6 +162,47 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
     }
   }
 
+  async function createMovie(id,movieName) {
+    const apiData = await API.graphql({ query: listTodos });
+    let data = apiData.data.listTodos.items
+  
+    var check = false
+
+    data.length > 0 &&
+    data.map((movie) => {
+        if(movie.name === id) {
+          check = true
+        }
+      })
+    
+    if(check === false) {
+      let movieData = {"name": id}
+      // let movieData = {"user": "ulu@gmail.com", "movieId": id}
+      await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      // console.log(movieData)
+      // await API.graphql({ query: createNoteMutation, variables: { input: movieData } });
+      // setNotes([ ...notes, movieData ]);
+      // console.log(movieData)
+      setMovieCheck(true)
+      handleClickSnack()
+    } else {
+      handleClickSnack2()
+    }
+  }
+  async function checkMovie() {
+    const apiData = await API.graphql({ query: listTodos });
+    let movieData = apiData.data.listTodos.items
+
+    movieData.length > 0 &&
+    movieData.map((movie) => {
+        if(movie.name === id) {
+          setMovieCheck(true)
+        }
+      })
+    // if(movieCheck) {
+    //   console.log('exists')
+    // }
+  }
   return (
     <>
       <div className="randomContainer">
@@ -158,25 +234,29 @@ export const RandomMovie = ({title, poster_path, overview, vote_average, id, rel
           <p>Overview: {overview}</p>
         </div>
         <div className="randomRating">
-          <div className="watchButton ratingIcon">
-            <a onClick={() => myPrint(id)}>
-              <button type="button" className="button-5">
-                {/* <i className="fa-solid fa-plus fa-lg"></i> */}
-                <AddIcon/>
-              </button>
-            </a>
-          </div>
-          <div className="watchButton ratingIcon">
-            <a onClick={() => createMovie(id,title)}>
-              <button type="button" className="button-5">
-                {/* <i className="fa-solid fa-eye fa-lg"></i> */}
-                
-                <VisibilityIcon/>
-              </button>
-            </a>
-          </div>
-        </div>
+                <div className="watchButton ratingIcon">
+                  <a onClick={()=>createMovie(id,title)}>
+                    <button type="button" className="button-5">
+                      {movieCheck ? (
+                        <StarIcon/>
+                      ) : (
+                        <StarBorderIcon/>
+                      )}
+                    </button>
+                  </a>
+                </div>
+              </div>
       </div>
+    <Snackbar open={openSnack} autoHideDuration={4000} onClose={handleCloseSnack}>
+      <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%'}}>
+        {title} added!
+      </Alert>
+    </Snackbar>
+    <Snackbar open={openSnack2} autoHideDuration={4000} onClose={handleCloseSnack2}>
+      <Alert onClose={handleCloseSnack2} severity="info" sx={{ width: '100%'}}>
+        {title} is already added!
+      </Alert>
+    </Snackbar>
     </>
   );
 };

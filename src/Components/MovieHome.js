@@ -78,7 +78,7 @@ const convertDate = (date) => {
 const myPrint = (id) => {
   console.log(id);
 };
-export const Movie = ({
+export const MovieHome = ({
   title,
   poster_path,
   overview,
@@ -300,9 +300,6 @@ export const Movie = ({
               </div>
             </div>
           </div>
-        </Box>
-      </Modal>
-    </div>
     <Snackbar open={openSnack} autoHideDuration={4000} onClose={handleCloseSnack}>
       <Alert onClose={handleCloseSnack} severity="success" sx={{ width: '100%'}}>
         {title} added!
@@ -313,6 +310,9 @@ export const Movie = ({
         {title} is already added!
       </Alert>
     </Snackbar>
+        </Box>
+      </Modal>
+    </div>
     </>
   );
 };

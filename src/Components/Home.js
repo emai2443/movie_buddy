@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Movie } from "./Movie";
+import { MovieHome } from "./MovieHome";
 import { Link } from "react-router-dom";
 import { Header } from "./Header";
 import { Account } from "./Account";
@@ -63,7 +63,7 @@ export const Home = () => {
           {movies1.length > 0 &&
             movies1.map((movie) => (
               <SwiperSlide>
-                <Movie key={movie.id} {...movie} />
+                <MovieHome key={movie.id} {...movie} />
               </SwiperSlide>
             ))}
         </Swiper>
@@ -86,7 +86,7 @@ export const Home = () => {
           {movies2.length > 0 &&
             movies2.map((movie) => (
               <SwiperSlide>
-                <Movie key={movie.id} {...movie} />
+                <MovieHome key={movie.id} {...movie} />
               </SwiperSlide>
             ))}
         </Swiper>
@@ -109,7 +109,7 @@ export const Home = () => {
           {movies3.length > 0 &&
             movies3.map((movie) => (
               <SwiperSlide>
-                <Movie key={movie.id} {...movie} />
+                <MovieHome key={movie.id} {...movie} />
               </SwiperSlide>
             ))}
         </Swiper>
